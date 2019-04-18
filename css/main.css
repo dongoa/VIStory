@@ -1,0 +1,235 @@
+body{
+    margin:0 0;
+}
+.header{
+    width:100%;
+    height:50px;
+    background-color: #F9F9F9;
+}
+.header>div{
+    padding: 8px 0px 0px 100px;
+    text-align:left;
+    font-weight: 350;
+    font-size: 28px;
+}
+.container{
+    display: flex;
+    width:100%;
+    height:1000px;
+}
+.item1 {
+    width: 18%;
+    background-color: #feffff;
+    padding: 10px 10px 10px 10px;
+    border-right: 1px #eee solid;
+}
+.item1-border,.item2-border{
+    /*border: 1px solid #DDDDDD;*/
+    /*border-left: 0px;*/
+    height:100%;
+    /*border-radius: 10px;*/
+}
+.item2-border{
+    /*border: 1px solid #DDDDDD;*/
+}
+.item2{
+    width:82%;
+    background-color: #feffff;
+    margin: 50px 50px 50px 50px
+}
+.item3{
+    position: absolute;
+    right:50px;
+}
+.item3>span{
+    box-sizing:content-box;
+    display:inline-block;
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding-top: 5px;
+}
+.item3>span:hover{
+    background-color: #DDDDDD;
+}
+.venues-container{
+    width:100%;
+    height:6%;
+    background-color: snow;
+}
+.author-container,.keyword-container{
+    width:100%;
+    height:45%;
+    background-color: snow;
+}
+.venues-head,.author-head,.keyword-head{
+    height:30px;
+    width: 100%;
+    background-color: #F9F9F9;
+    font-size: 25px;
+    text-align:left;
+    font-weight: 350;
+    color: black;
+    border-bottom: 1px solid black;
+}
+.venues-body{
+    width: 100%;
+    height:70px;
+    background-color: #e0f0d7;
+    /*border-radius:5px;*/
+}
+.ven_body_container,.key_body_container,.aut_body_container{
+    background-color: #DDDDDD;
+}
+.author-body{
+    background-color: #fbf8e2;
+}
+.keyword-body{
+    background-color: #f0dede;
+}
+.author-body,.keyword-body{
+    width: 100%;
+    height: 410px;
+
+    overflow-y:scroll;
+    /*border-radius:5px;*/
+}
+
+.text-box{
+    box-sizing:content-box;
+    display:inline-block;
+    padding-right:12px;
+    margin:1px;
+    /*background-color: #DDDDDD;*/
+    /*border-radius:5px;*/
+}
+
+.text-box:hover{
+     background-color: #98dafc;
+ }
+.text-style{
+    color:black;
+    font-size:17px;
+    font-weight: 200;
+}
+
+.num-style{
+    /*vertical-align: sub;*/
+    font-size:4pt;
+    top:2px;
+    left:1px;
+    position:relative;
+    color: black;
+}
+.svg{
+    height: 100%;
+    width: 100%;
+    background-color: #feffff;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    /*background-color: #ddd;*/
+}
+/*!*mistyrose这个红色很好看*!*/
+/*::-webkit-scrollbar-thumb {*/
+    /*background-color: #333;*/
+    /*border-radius: 10px;*/
+/*}*/
+
+/*::-webkit-scrollbar-thumb:hover {*/
+    /*background-color: #777;*/
+/*}*/
+
+
+/*!*滑道*!*/
+/*::-webkit-scrollbar-track {*/
+    /*box-shadow: inset 0 0 6px #333;*/
+    /*border-radius: 10px;*/
+/*}*/
+
+/*svg*/
+.content{
+    transform: translate(0,30px);
+}
+/*.year-text{*/
+
+    /*font-size:17px;*/
+    /*font-weight: 200;*/
+/*}*/
+.yearText {
+    font-family: Fantasy;
+    fill:#808080;
+    opacity:0.5;
+    font-size:25px;
+    letter-spacing:1px;
+    text-shadow: #98dafc 2px 2px 4px;
+    /*font-weight: 400;*/
+}
+.year-bar>line{
+    stroke: #828080;
+    stroke-width: 2.5px;
+    stroke-dasharray:0.5,4;
+    stroke-linecap:round;
+    stroke-opacity: 0.4;
+}
+/*svg>g>circle{*/
+    /*stroke:#DDDDDD;*/
+    /*stroke-width:1px;*/
+    /*fill:#DDDDDD;*/
+    /*padding:2px;*/
+    /*margin:2px;*/
+/*}*/
+.line-year > path{
+    /*stroke:#DDDDDD;*/
+    stroke-width: 2px;
+    fill: snow;
+}
+.group-path{
+    stroke:black;
+    stroke-width: 1.5px;
+    fill: aquamarine;
+    stroke-opacity: 0.4;
+    /*fill: #93e9ff;*/
+}
+circle{
+    fill: black;
+    opacity: 0.1;
+}
+circle:hover{
+    fill: yellow;
+    opacity: 1;
+}
+
+
+/*Ring style*/
+.arc path {
+    /*stroke-width: 0.5;*/
+    stroke: #fff;
+    /*stroke-opacity: 0.7;*/
+}
+
+/*Tips */
+img{  max-width: 100%; max-height: 100%; }
+
+/* ----- tip ----- */
+.content-entry {
+    width: 300px;
+    height: 220px;
+    /*display: inline-block;*/
+    margin: 5px 10px;
+    /*padding: 5px;*/
+    border: 5px solid white;
+    border-radius: 100px;
+    overflow: hidden;
+    word-wrap: break-word;
+    box-shadow: 0 0 9px 2px black;
+    cursor: pointer;
+    background: white;
+    /*display: flex;*/
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    /*align-items: center;*/
+}
