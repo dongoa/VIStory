@@ -1,7 +1,7 @@
 import {groupArray} from './groupArray.js';
 import {r} from './r.js';
 import {positioneachG} from './positioneachG.js';
-import {pathString} from './pathstring.js';
+import {pathString} from './pathString.js';
 var colormap=['#F39C29', '#7FBD66', '#BEA4DB'];
 function turnPaperId(c1,c2){
     let arr=[];
