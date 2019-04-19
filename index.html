@@ -6,6 +6,15 @@
     <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
+<div id="sys-loading" class=""><div class="spinner">
+    <div class="loader-inner line-scale-pulse-out-rapid">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div></div>
 <div class="header"><div>VisFiguresCollection</div></div>
 <div class="container">
     <div class="item1">
@@ -40,6 +49,19 @@
     </div>
     <div class="item3"> <span class="gV">Venues</span> <span class="gA">Author</span> <span class="gK">Keyword</span></div>
 </div>
+<script>
+    function reloading(){
+        document.onreadystatechange = subSomething;
+        function subSomething() {
+            if (document.readyState == "complete") {
+                //延迟一秒关闭loading
+                $('#sys-loading').delay(1000).hide(0);
+                $('.spinner').delay(1000).fadeOut('slow');
+            }
+        }
+    }
+    reloading();
+</script>
 <script src="src/venues2p.js"></script>
 <script src="src/ColorData.js"></script>
 <script src="js-out/d3.min.js"></script>

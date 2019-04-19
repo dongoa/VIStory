@@ -219,6 +219,7 @@ export function draw(ans,s,gType,numGroups=5,figure_data){
         .offset([10, 100])
         .direction('s')
         .html(function (d,_i) {
+            console.log(d);
             var _url = d.data.src;
             var  string = "<div class='content-entry'><img  src=" +_url +"  /></div>";
             return string;
