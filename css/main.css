@@ -7,6 +7,7 @@ body{
     background-color: #F9F9F9;
 }
 .header>div{
+    /*font-family: Fantasy;*/
     padding: 8px 0px 0px 100px;
     text-align:left;
     font-weight: 350;
@@ -50,9 +51,9 @@ body{
     background-color: #f9f9f9;
     padding-top: 5px;
 }
-.item3>span:hover{
-    background-color: #DDDDDD;
-}
+/*.item3>span:hover{*/
+    /*background-color: #DDDDDD;*/
+/*}*/
 .venues-container{
     width:100%;
     height:6%;
@@ -64,6 +65,7 @@ body{
     background-color: snow;
 }
 .venues-head,.author-head,.keyword-head{
+    /*visibility: visible;*/
     height:30px;
     width: 100%;
     background-color: #F9F9F9;
@@ -184,7 +186,7 @@ body{
 .line-year > path{
     /*stroke:#DDDDDD;*/
     stroke-width: 2px;
-    fill: snow;
+    fill: cornflowerblue;
 }
 .group-path{
     stroke:black;
@@ -232,4 +234,47 @@ img{  max-width: 100%; max-height: 100%; }
     vertical-align: middle;
     text-align: center;
     /*align-items: center;*/
+}
+
+/*g button*/
+.gV,.gA,.gK{
+    border-bottom: 5px #49BEAA solid;
+    border-radius: 0 0 5px 5px;
+}
+.gV:hover,.gA:hover,.gK:hover{
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #ddd;
+    border-bottom: 5px #49BEAA solid;
+}
+/*group name*/
+.group-name{
+    font-family: Fantasy;
+    fill:#808080;
+    opacity:0.8;
+    font-size:20px;
+    text-shadow: #98dafc 2px 2px 4px;
+}
+
+/*min + -*/
+.tag_occurrence {
+    font-size: 9pt;
+    float: right;
+    position: relative;
+    height: 0px;
+    top: -4px;
+    left: -1px;
+}
+.button{
+    border: 1px solid silver;
+    margin: 12px 5px;
+    border-radius: 5px;
+    background: #EEEEEE;
+    color: #666666;
+    cursor: pointer;
+    min-width: 15px;
+    height: 15px;
+    font-size: 9pt;
+    text-align: center;
+    display: inline-block;
+    padding: 0px;
 }

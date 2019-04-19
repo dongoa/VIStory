@@ -14,6 +14,10 @@ function attributeF(s3,selection,s,type,figure_root){
 
     var ans=set_op(s3,s);
     console.log("绘制图形数据集为：",ans);
-    draw(ans,s,0,3,figure_root);
+
+    $(".gV").click(function(){ draw(ans,s,0,3,figure_root); });
+    $(".gA").click(function(){ draw(ans,s,1,3,figure_root); });
+    $(".gK").click(function(){ draw(ans,s,2,3,figure_root); });
+    draw(ans,s,1,3,figure_root);
 }
 export {attributeF};

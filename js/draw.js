@@ -3,6 +3,8 @@ import {r} from './r.js';
 import {positioneachG} from './positioneachG.js';
 import {pathString} from './pathString.js';
 var colormap=['#F39C29', '#7FBD66', '#BEA4DB'];
+var color = d3.scaleOrdinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888"]);
 function turnPaperId(c1,c2){
     let arr=[];
     for(var i in c1){
@@ -40,11 +42,13 @@ export function draw(ans,s,gType,numGroups=5,figure_data){
                     item.year=i;
                     item.groupid=n++;
                     item.gLength=tl;
+                    // if(k==0) cirleArray.push(item);
                     cirleArray.push(item);
                 }
             }
         }
     }
+
     console.log(cirleArray,maxL,maxY,p_each_year);
 
     //画上一些标记
@@ -72,6 +76,7 @@ export function draw(ans,s,gType,numGroups=5,figure_data){
     var gPath=svg.append("g").attr("class","group-path");
     var gCirlce=svg.append("g").attr("class","circles");
     var gRing=svg.append("g").attr("class","rings");
+    var gNameText=svg.append("g").attr("class","group-name");
     var year2p=p_each_year;
 
     var [_,maxp_year]=d3.extent(year2p);
@@ -84,7 +89,6 @@ export function draw(ans,s,gType,numGroups=5,figure_data){
     var cR=0,cols=0;
     for(var i=0;i<10;i++){
         for(var gi in g2paper){
-            let n=0;
             var tmp = g2paper[gi].arrYear[i];
             var tl=tmp.length;
             if(tl!=0)
@@ -108,29 +112,36 @@ export function draw(ans,s,gType,numGroups=5,figure_data){
     //保存path-string的数组
     var pathstring=pathString(posotion_each_group,groupNumber,YearWidth);
     // console.log(pathstring);
-    gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i];}).style("opacity","0.5");
+    gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i];}).style("opacity","0.3");
 
 
     //计算圆的位置
     var padingWidth=(YearWidth-cols*2*cR)/2;
+    var startmoveNumber=1;
+    if(cols<3)startmoveNumber=0;
     console.log(cirleArray);
     for(let i in cirleArray){
+
         let d=cirleArray[i];
-        let tmp=g2paper[d.group].arrYear[d.year].length;
+        let tmp=g2paper[d.group].arrYear[d.year].length+startmoveNumber;
 
         let padingHeight=((posotion_each_group[d.year][Number(d.group)+1]-posotion_each_group[d.year][d.group])-Math.ceil(tmp/cols)*2*cR)/2;
         // console.log(posotion_each_group[d.year][Number(d.group)+1],padingHeight,tmp);
         let y=posotion_each_group[d.year][d.group]+padingHeight;
         let x=YearWidth*(d.year)+padingWidth;
-        let rowi=Math.floor(d.groupid/cols);
-        let coli=d.groupid%cols;
+        let rowi=Math.floor((d.groupid+startmoveNumber)/cols);
+        let coli=(d.groupid+startmoveNumber)%cols;
         d.x=coli*cR*2+cR+x;
         d.y=rowi*cR*2+cR+y;
         // console.log(rowi,coli);
-        let z=d.gLength%cols;
+        let z=(d.gLength+startmoveNumber)%cols;
         if(d.groupid >=(d.gLength-z)){
             let z2=cR*2*(cols-z)/2;
             d.x+=z2;
+        }
+        if(d.groupid<cols-startmoveNumber){
+            let moveTopPadding=cR*startmoveNumber;
+            d.x-=moveTopPadding;
         }
         // if(d.groupid)
         //对齐最后一行
@@ -154,8 +165,7 @@ export function draw(ans,s,gType,numGroups=5,figure_data){
     // 画ring
     {
         let cR2=cR-2;
-        var color = d3.scaleOrdinal()
-            .range(["#98abc5", "#8a89a6", "#7b6888"]);
+
         var arc = d3.arc()
             .outerRadius(cR2)
             // .innerRadius(cR2*Math.random());
@@ -190,8 +200,8 @@ export function draw(ans,s,gType,numGroups=5,figure_data){
         g.append("path")
             .attr("d", function(d){
                 // console.log(scaleR(d.data.fratio));
-                // arc.innerRadius(cR2*(d.data.textp));
-                arc.innerRadius(cR2*(1-scaleR(d.data.fratio)));
+                arc.innerRadius(cR2*(d.data.textp));
+                // arc.innerRadius(cR2*(1-scaleR(d.data.fratio)));
                 return arc(d);
             })
             .style("fill", function (d) {
@@ -230,5 +240,19 @@ export function draw(ans,s,gType,numGroups=5,figure_data){
     //     s+="L "+0+" "+(riverY(y(year2p[0]),height)-y(year2p[0])) ;
     //     return s+"Z";
     // });
+
+    let px=0;
+    for(var i in g2paper){
+        gNameText.append("text").attr("x",function(){
+            if(i==0) return 0;
+            let l = g2paper[i-1].name.length;
+            px+=l*10;
+            console.log(px,l);
+            return px;
+        }).attr("y",height-10).attr("fill",function(){ return colormap[i]; })
+            .text(function () {
+                return g2paper[i].name;
+            })
+    }
 }
 function riverY(y,Y){ return y+(Y-y)/2; }
