@@ -25,7 +25,7 @@ function s1(s3,selection,s,type){
 
     // console.log("authors面板映射",map_s1);
     // console.log("authors与文章映射对象",authors2data);
-
+    // console.log(JSON.stringify(authors2data));
     let data=[];
     for(var i in map_s1){
         let tmp= {};

@@ -18,7 +18,7 @@ export function groupArray(gType,Idans,s,numGroups) {
         item.arrYear=[[],[],[],[],[],[],[],[],[],[]];
         let l=item.arr.length;
         item.arr.forEach(function(ii,index,array){
-            let y=(Number(s[ii].Year)-2007);
+            let y=(Number(s[ii].Year)-2009);
             item.arrYear[y].push(ii);
         });
 

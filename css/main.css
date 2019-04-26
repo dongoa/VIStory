@@ -1,3 +1,4 @@
+@import 'https://fonts.googleapis.com/css?family=Lato:400,700';
 body{
     margin:0 0;
 }
@@ -5,13 +6,14 @@ body{
     width:100%;
     height:50px;
     background-color: #F9F9F9;
+    color: #49BEAA;
 }
 .header>div{
     /*font-family: Fantasy;*/
-    padding: 8px 0px 0px 100px;
+    padding: 10px 0px 0px 100px;
     text-align:left;
-    font-weight: 350;
-    font-size: 28px;
+    font-weight: 550;
+    font-size: 22px;
 }
 .container{
     display: flex;
@@ -78,17 +80,18 @@ body{
 .venues-body{
     width: 100%;
     height:70px;
-    background-color: #e0f0d7;
+    background-color: white;
+
     /*border-radius:5px;*/
 }
 .ven_body_container,.key_body_container,.aut_body_container{
     background-color: #DDDDDD;
 }
 .author-body{
-    background-color: #fbf8e2;
+    background-color: white;
 }
 .keyword-body{
-    background-color: #f0dede;
+    background-color: white;
 }
 .author-body,.keyword-body{
     width: 100%;
@@ -216,26 +219,143 @@ circle:hover{
 img{  max-width: 100%; max-height: 100%; }
 
 /* ----- tip ----- */
-.content-entry {
-    width: 300px;
-    height: 220px;
-    /*display: inline-block;*/
-    margin: 5px 10px;
-    /*padding: 5px;*/
-    border: 5px solid white;
-    border-radius: 20px;
+/*.content-entry {*/
+    /*width: 300px;*/
+    /*height: 220px;*/
+    /*!*display: inline-block;*!*/
+    /*cursor: pointer;*/
+    /*background: white;*/
+    /*display: block;*/
+    /*top:200px;*/
+    /*!*display: flex;*!*/
+    /*!*display: table-cell;*!*/
+    /*!*vertical-align: middle;*!*/
+    /*text-align: center;*/
+    /*border:2px solid black;*/
+    /*left:50px;*/
+    /*!*align-items: center;*!*/
+/*}*/
+/*.detail{*/
+    /*width:400px;*/
+    /*height:300px;*/
+    /*margin: 5px 10px;*/
+    /*!*padding: 5px;*!*/
+    /*border: 5px solid white;*/
+    /*border-radius: 20px;*/
+    /*overflow: hidden;*/
+    /*word-wrap: break-word;*/
+    /*box-shadow: 0 0 9px 2px black;*/
+    /*text-align: left;*/
+/*}*/
+/*hr{*/
+    /*border: 0;*/
+    /*border-top: 1px solid #eee;*/
+/*}*/
+/*.image-conainer{*/
+    /*top:200px;*/
+    /*height: 220px;*/
+/*}*/
+.out{
+    width: 450px;
+    height:260px;
+    background-color: #828080;
+    border: 3px solid white;
+    border-radius: 5px;
     overflow: hidden;
     word-wrap: break-word;
     box-shadow: 0 0 9px 2px black;
-    cursor: pointer;
-    background: white;
-    /*display: flex;*/
-    display: table-cell;
-    vertical-align: middle;
+}
+.img{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.top{
+    width: 100%;
+    height:20%;
+    background-color: snow;
+}
+.figs{
+    float: left;
+    width: 250px;
+    height:10%;
+    background-color: snow;
     text-align: center;
-    /*align-items: center;*/
+
+    font-size: 8px;
+    font-family:"Lato", sans-serif;
+}
+.left{
+    float: left;
+    width: 250px;
+    height:70%;
+    background-color: snow;
+    text-align: center;
+    position: relative;
+    border-top: 1px solid #dddddd;
+}
+.right{
+    float: right;
+    width: 192px;
+    height:80%;
+    background-color: snow;
+    padding-left: 5px;
+    padding-right: 2px;
+    border-left: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+    vertical-align: middle;
+
+
+display:flex;justify-content:center;align-items:center;
 }
 
+.t{
+    font-size: 8px;
+    font-family:"Lato", sans-serif;
+
+}
+.t strong{
+
+    font-size: 12px;
+    font-weight: 900;
+}
+.t p{
+    color: dodgerblue;
+    padding: 0;
+    margin: 0.5px auto 0.5px auto;
+    float:right;
+    background-color: #dddddd;
+}
+.t div {
+    /*float:right;*/
+    /*padding-right: 40px;*/
+    /*text-align: center;*/
+}
+.t span{
+    color: dodgerblue;
+    /*color: cornflowerblue;*/
+    float:right;
+    padding-right: 50px;
+}
+.title{
+
+    color: dodgerblue;
+    text-align: center;
+    padding: auto 2px auto 2px;
+    /*padding-top: 2px;*/
+}
+.title strong{
+    color:black;
+}
+.contain-t{
+
+    /*margin: auto;*/
+    /*position: absolute;*/
+    /*top: 0; left: 250px; bottom: 0; right: 0;*/
+    /*background: red;*/
+
+}
 /*g button*/
 .gV,.gA,.gK{
     border-bottom: 5px #49BEAA solid;

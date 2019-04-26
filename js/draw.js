@@ -16,7 +16,7 @@ function turnPaperId(c1,c2){
 }
 
 
-export function draw(ans,s,gType,numGroups=5,figure_data){
+export function draw(ans,s,gType,numGroups=5){
     //将ans转为论文id
     var Idans = turnPaperId(ans,s);
     //计算一个包含分组情况的数组
@@ -63,12 +63,12 @@ export function draw(ans,s,gType,numGroups=5,figure_data){
     // svg.append("line").attr("x1",0).attr("x2",width).attr("y1",height/2).attr("y2",height/2);
     var yearText=svg.append("g").attr("class","year-text");
     for(var i=0;i<10;i++){
-        yearText.append("text").attr("x",width/10*i+YearWidth/2-25).attr("y",25).text(function(){ return i+2007; }).attr("class","yearText");
+        yearText.append("text").attr("x",width/10*i+YearWidth/2-25).attr("y",25).text(function(){ return i+2009; }).attr("class","yearText");
     }
     svg=svg.append("g").attr("class","content");
     var yearbar=svg.append("g").attr("class","year-bar");
-    for(var i=0;i<10;i++){
-        yearbar.append("line").attr("x1",width/10*i+YearWidth/2).attr("x2",width/10*i+YearWidth/2).attr("y1",0).attr("y2",height);
+    for(var i=1;i<10;i++){
+        yearbar.append("line").attr("x1",width/10*i/*+YearWidth/2*/).attr("x2",width/10*i/*+YearWidth/2*/).attr("y1",0).attr("y2",height);
     }
 
 
@@ -117,7 +117,7 @@ export function draw(ans,s,gType,numGroups=5,figure_data){
 
     //计算圆的位置
     var padingWidth=(YearWidth-cols*2*cR)/2;
-    var startmoveNumber=1;
+    var startmoveNumber=2;
     if(cols<3)startmoveNumber=0;
     console.log(cirleArray);
     for(let i in cirleArray){
@@ -151,7 +151,7 @@ export function draw(ans,s,gType,numGroups=5,figure_data){
     }
 
     //画⚪
-    console.log(cirleArray);
+    // console.log(cirleArray);
     // gCirlce.selectAll("circle").data(cirleArray).enter().append("circle")
     //     .attr("cx",function(d){
     //
@@ -179,7 +179,7 @@ export function draw(ans,s,gType,numGroups=5,figure_data){
             .attr("transform", function (d) {
                 return "translate(" + d.x + "," + d.y + ")";//设置ring的圆心
             });
-
+        // var json={};
         var g = geachRing.selectAll(".arc")
             .data(function(d,i){
                 let data=figure2data[d.pid];
@@ -200,16 +200,32 @@ export function draw(ans,s,gType,numGroups=5,figure_data){
         g.append("path")
             .attr("d", function(d){
                 // console.log(scaleR(d.data.fratio));
-                arc.innerRadius(cR2*(d.data.textp));
-                // arc.innerRadius(cR2*(1-scaleR(d.data.fratio)));
+                let pages=(parseInt(s[d.data.paperid]["Last page"])-parseInt(s[d.data.paperid]["First page"]))+1;
+                // arc.innerRadius(0.8*cR2*(1-((d.data.textp)/(2200*2800*pages))));
+                arc.innerRadius(cR2*(1-scaleR(d.data.fratio)));
                 return arc(d);
             })
             .style("fill", function (d) {
                 // console.log(d);
+                // if( colorload_data[d.data.figureid]==undefined){
+                //     var image=new Image();
+                //     image.src=d.data.src;
+                //     var colorThief = new ColorThief();
+                //     image.onload=function(){
+                //         var domaincolor = colorThief.getColor(image);
+                //         console.log(domaincolor);
+                //         json[d.data.figureid]=domaincolor;
+                //         console.log(JSON.stringify(json));
+                //     }
+                //
+                // }
+
+
+
                 return "rgba(" + colorload_data[d.data.figureid] + ")";
             })
-            .on('mouseover', function (k) {  tip2.show(k);})
-            .on('mouseout', function (k) { tip2.hide(k); });
+            .on('mouseover', function (k) {  tip2.show(k,i);})
+            .on('mouseout', function (k) { tip2.hide(k,i); });
         // console.log("绘制Ring时查看图片数据",figure_data);
     }
 
@@ -221,7 +237,19 @@ export function draw(ans,s,gType,numGroups=5,figure_data){
         .html(function (d,_i) {
             console.log(d);
             var _url = d.data.src;
-            var  string = "<div class='content-entry'><img  src=" +_url +"  /></div>";
+            let node=s[i]["Paper Title"];
+            var  string = "<div class='out'>" +
+                "<div class='top'>" +
+                "  " +"<div class='title t'><strong>CURRENT PAPER TITLE:</strong><br>"+s[d.data.paperid]["Paper Title"]+"</div></div>" +
+                "<div class='left'><img class='img' src=" +_url +" ></div>" +
+                "<div class='right'><div class='contain-t'>" +
+
+                "" +"<div class='author t'><strong>AUTHORS:</strong><p>"+s[d.data.paperid]["Author Names"]+"</p></div>"+
+                "" +"<div class='year t'><strong>PUBLISHED YEAR:</strong><span>"+s[d.data.paperid]["Year"]+"</span></div>"+
+                "" +"<div class='conference t'><strong>CONFERENCE:</strong><span>"+s[d.data.paperid]["Conference"]+"</span></div>"+
+                "" +"<div class='keyword t'><strong>KEYWORDS:</strong><p>"+s[d.data.paperid]["Author Keywords"]+"</p></div>"+
+                // "" +"<div class='caption t'><strong>Caption:</strong>"+"Fig."+(d.index+1)+"</div>"+
+                "</div></div><div class='figs'>"+"Fig."+(d.index+1)+" of "+(d.data.fignums)+"</div></div>";
             return string;
         });
     svg.call(tip2);

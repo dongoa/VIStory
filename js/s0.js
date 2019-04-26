@@ -27,7 +27,8 @@ function s0(s3,selection,s,type){
         tmp['num'] = map_s0[i];
         data.push(tmp);
     }
-
+    data.sort((a,b)=>b.num-a.num);
+    // console.log(JSON.stringify(venues2data));
     // console.log("venues数组",data);
    // setClick('.venues-body',data,venues2data,s3,s,clicked,new_selection,V2P,type);
     $('.venues-body').children('*').remove();
