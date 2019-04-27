@@ -1,34 +1,34 @@
 import {attributeF} from './attributeF.js';
-d3.dsv(",", "csvdata/20183.csv", function (d) {
-    return {
-        d
-    };
-}).then(function (figure_data) {
-    d3.dsv(",", "csvdata/09-18.csv", function (d) {
-        return d;
-    }).then(function (paper_data) {
-       // var paper_data=PAPER;
+// d3.dsv(",", "csvdata/20183.csv", function (d) {
+//     return {
+//         d
+//     };
+// }).then(function (figure_data) {
+//     d3.dsv(",", "csvdata/09-18.csv", function (d) {
+//         return d;
+//     }).then(function (paper_data) {
+       var paper_data=PAPER;
         // console.log(JSON.stringify(paper_data));
         /**
          初始化*/
         //将图片csv数据转化为hierarchy数据
-        var figure_root1 = d3.stratify()
-            .id(function (d) {
-                return d.d.imageID;
-            })
-            .parentId(function (d) {
-                return d.d.paperID;
-            })
-            (figure_data);
-        var figure_root = d3.hierarchy(figure_root1)
-            .sum(function (d) {
-                if(d.data.d.size)
-                    return 1;
-                else return 0;
-            })
-            .sort(function (a, b) {
-                // return b.value - a.value;
-            });
+        // var figure_root1 = d3.stratify()
+        //     .id(function (d) {
+        //         return d.d.imageID;
+        //     })
+        //     .parentId(function (d) {
+        //         return d.d.paperID;
+        //     })
+        //     (figure_data);
+        // var figure_root = d3.hierarchy(figure_root1)
+        //     .sum(function (d) {
+        //         if(d.data.d.size)
+        //             return 1;
+        //         else return 0;
+        //     })
+        //     .sort(function (a, b) {
+        //         // return b.value - a.value;
+        //     });
         // console.log(figure_root);
         //
         // var figure2d={};
@@ -80,5 +80,5 @@ d3.dsv(",", "csvdata/20183.csv", function (d) {
         //初始化面板和主要视图
 
         attributeF([[],[],[]],paper_data,paper_data,-1);
-    });
-});
+//     });
+// });

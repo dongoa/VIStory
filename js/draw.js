@@ -151,8 +151,9 @@ export function draw(ans,s,gType,numGroups=5){
     }
 
     //画⚪
-    // console.log(cirleArray);
-    // gCirlce.selectAll("circle").data(cirleArray).enter().append("circle")
+    console.log(cirleArray);
+    // var g = gCirlce.selectAll("g").data(cirleArray).enter().append("g");
+    // g.append("circle")
     //     .attr("cx",function(d){
     //
     //         return d.x;
@@ -165,7 +166,6 @@ export function draw(ans,s,gType,numGroups=5){
     // 画ring
     {
         let cR2=cR-2;
-
         var arc = d3.arc()
             .outerRadius(cR2)
             // .innerRadius(cR2*Math.random());
@@ -185,7 +185,6 @@ export function draw(ans,s,gType,numGroups=5){
                 let data=figure2data[d.pid];
                 // console.log(s[d.pid],i);
                 let tmp=pie(data);
-
                 return tmp;
             })
             .enter().append("g")
@@ -194,6 +193,10 @@ export function draw(ans,s,gType,numGroups=5){
 
                 return "arc";
             });
+
+
+        // var xxx=0;
+
         const scaleR = d3.scaleLinear()
             .range([0,1])
             .domain([0,8]);
@@ -205,7 +208,7 @@ export function draw(ans,s,gType,numGroups=5){
                 arc.innerRadius(cR2*(1-scaleR(d.data.fratio)));
                 return arc(d);
             })
-            .style("fill", function (d) {
+            .style("fill", function (d,i) {
                 // console.log(d);
                 // if( colorload_data[d.data.figureid]==undefined){
                 //     var image=new Image();
@@ -220,8 +223,22 @@ export function draw(ans,s,gType,numGroups=5){
                 //
                 // }
 
-
-
+                //增加显示
+                // if(xxx==0){
+                //     gCirlce.append("defs").append("pattern").attr("id","x").attr("width",100).attr("height",100).attr("patternUnits","userSpaceOnUse" )
+                //         .append("image").attr("xlink:href",d.data.src).attr("x",0).attr("y",0).attr("width",100).attr("height",100);
+                //     gCirlce.append("circle")
+                //         .attr("cx",function(d){
+                //
+                //             return 20;
+                //         })
+                //         .attr("cy",function(d){
+                //             return 20;
+                //         })
+                //         .attr("r",cR-2)
+                //         .attr("fill",`url(#x)`);
+                //     xxx=1;
+                // }
                 return "rgba(" + colorload_data[d.data.figureid] + ")";
             })
             .on('mouseover', function (k) {  tip2.show(k,i);})
