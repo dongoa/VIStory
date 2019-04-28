@@ -15,9 +15,27 @@ function attributeF(s3,selection,s,type){
     var ans=set_op(s3,s);
     console.log("绘制图形数据集为：",ans);
 
-    $(".gV").click(function(){ draw(ans,s,0,3); });
-    $(".gA").click(function(){ draw(ans,s,1,3); });
-    $(".gK").click(function(){ draw(ans,s,2,3); });
+    $(".gV").click(function(){
+        // let n=$(".group input").val();
+        $(this).css('border-bottom','5px #49BEAA solid');
+        $('.gA').css('border-bottom','5px #ddd solid');
+        $('.gK').css('border-bottom','5px #ddd solid');
+        draw(ans,s,0,3); });
+    $(".gA").click(function(){
+        $(this).css('border-bottom','5px #49BEAA solid');
+        $('.gV').css('border-bottom','5px #ddd solid');
+        $('.gK').css('border-bottom','5px #ddd solid');
+        // let n=$(".group input").val();
+        draw(ans,s,1,3); });
+    $(".gK").click(function(){
+        $(this).css('border-bottom','5px #49BEAA solid');
+        $('.gA').css('border-bottom','5px #ddd solid');
+        $('.gV').css('border-bottom','5px #ddd solid');
+        // let n=$(".group input").val();
+        draw(ans,s,2,3); });
+    $('.gA').css('border-bottom','5px #49BEAA solid');
+    $('.gV').css('border-bottom','5px #ddd solid');
+    $('.gK').css('border-bottom','5px #ddd solid');
     draw(ans,s,1,3);
 }
 export {attributeF};

@@ -117,7 +117,7 @@ export function draw(ans,s,gType,numGroups=5){
 
     //计算圆的位置
     var padingWidth=(YearWidth-cols*2*cR)/2;
-    var startmoveNumber=2;
+    var startmoveNumber=1;
     if(cols<3)startmoveNumber=0;
     console.log(cirleArray);
     for(let i in cirleArray){
@@ -205,7 +205,7 @@ export function draw(ans,s,gType,numGroups=5){
                 // console.log(scaleR(d.data.fratio));
                 let pages=(parseInt(s[d.data.paperid]["Last page"])-parseInt(s[d.data.paperid]["First page"]))+1;
                 // arc.innerRadius(0.8*cR2*(1-((d.data.textp)/(2200*2800*pages))));
-                arc.innerRadius(cR2*(1-scaleR(d.data.fratio)));
+                arc.innerRadius(cR2*(1-scaleR(d.data.fratio))*0.5);
                 return arc(d);
             })
             .style("fill", function (d,i) {
@@ -257,7 +257,7 @@ export function draw(ans,s,gType,numGroups=5){
             let node=s[i]["Paper Title"];
             var  string = "<div class='out'>" +
                 "<div class='top'>" +
-                "  " +"<div class='title t'><strong>CURRENT PAPER TITLE:</strong><br>"+s[d.data.paperid]["Paper Title"]+"</div></div>" +
+                "  " +"<div class='title t'>"+s[d.data.paperid]["Paper Title"]+"</div></div>" +
                 "<div class='left'><img class='img' src=" +_url +" ></div>" +
                 "<div class='right'><div class='contain-t'>" +
 
@@ -292,7 +292,7 @@ export function draw(ans,s,gType,numGroups=5){
         gNameText.append("text").attr("x",function(){
             if(i==0) return 0;
             let l = g2paper[i-1].name.length;
-            px+=l*10;
+            px+=l*10+10;
             console.log(px,l);
             return px;
         }).attr("y",height-10).attr("fill",function(){ return colormap[i]; })

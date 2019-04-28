@@ -121,7 +121,7 @@ body{
 
 .num-style{
     /*vertical-align: sub;*/
-    font-size:4pt;
+    font-size:8pt;
     top:2px;
     left:1px;
     position:relative;
@@ -273,7 +273,7 @@ img{  max-width: 100%; max-height: 100%; }
 }
 .top{
     width: 100%;
-    height:20%;
+    height:13%;
     background-color: snow;
 }
 .figs{
@@ -289,7 +289,7 @@ img{  max-width: 100%; max-height: 100%; }
 .left{
     float: left;
     width: 250px;
-    height:70%;
+    height:77%;
     background-color: snow;
     text-align: center;
     position: relative;
@@ -298,7 +298,7 @@ img{  max-width: 100%; max-height: 100%; }
 .right{
     float: right;
     width: 192px;
-    height:80%;
+    height:87%;
     background-color: snow;
     padding-left: 5px;
     padding-right: 2px;
@@ -313,11 +313,11 @@ display:flex;justify-content:center;align-items:center;
 .t{
     font-size: 8px;
     font-family:"Lato", sans-serif;
-
+    padding-top: 3px;
 }
 .t strong{
 
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 900;
 }
 .t p{
@@ -339,17 +339,17 @@ display:flex;justify-content:center;align-items:center;
     padding-right: 50px;
 }
 .title{
-
+    font-size: 14px;
     color: dodgerblue;
     text-align: center;
-    padding: auto 2px auto 2px;
+    padding: 0 2px auto 2px;
+    padding-top: 0;
     /*padding-top: 2px;*/
 }
 .title strong{
     color:black;
 }
 .contain-t{
-
     /*margin: auto;*/
     /*position: absolute;*/
     /*top: 0; left: 250px; bottom: 0; right: 0;*/
@@ -358,13 +358,29 @@ display:flex;justify-content:center;align-items:center;
 }
 /*g button*/
 .gV,.gA,.gK{
-    border-bottom: 5px #49BEAA solid;
+    border-bottom: 5px #ddd solid;
     border-radius: 0 0 5px 5px;
 }
 .gV:hover,.gA:hover,.gK:hover{
     border-radius: 0 0 5px 5px;
     border: 1px solid #ddd;
+    border-bottom: 5px #ddd solid;
+}
+.gV:visited,.gA:visited,.gK:visited{
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #ddd;
     border-bottom: 5px #49BEAA solid;
+}
+.group{
+    margin-right: 4px;
+    border-bottom: 5px #ddd solid;
+    border-radius: 0 0 5px 5px;
+}
+.group input{
+    width: 80%;
+    border: 0;
+    height: 80%;
+    font-size: 17px;
 }
 /*group name*/
 .group-name{
