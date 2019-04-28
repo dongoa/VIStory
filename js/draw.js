@@ -131,14 +131,13 @@ export function draw(ans,s,gType,numGroups=5){
             .domain([0,8]);
         g.append("path")
             .attr("d", function(d){
-<<<<<<< HEAD
+
                 // console.log(scaleR(d.data.fratio));
                 let pages=(parseInt(s[d.data.paperid]["Last page"])-parseInt(s[d.data.paperid]["First page"]))+1;
                 // arc.innerRadius(0.8*cR2*(1-((d.data.textp)/(2200*2800*pages))));
                 arc.innerRadius(cR2*(1-scaleR(d.data.fratio))*0.5);
-=======
-                arc.innerRadius(cR2*(1-scaleR(d.data.fratio))*0.7);
->>>>>>> b17ded47996912a17a312d0c8fe9495016ccd0e0
+
+
                 return arc(d);
             })
             .style("fill", function (d,i) {
@@ -173,10 +172,9 @@ export function draw(ans,s,gType,numGroups=5){
             if(i==0) return 0;
             let l = g2paper[i-1].name.length;
             px+=l*10+10;
-<<<<<<< HEAD
+
             console.log(px,l);
-=======
->>>>>>> b17ded47996912a17a312d0c8fe9495016ccd0e0
+
             return px;
         }).attr("y",height-10).attr("fill",function(){ return colormap[i]; })
             .text(function () {

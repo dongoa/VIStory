@@ -11,14 +11,13 @@ function attributeF(s3,selection,s,type){
     if(type!=2)
         s2(s3,selection,s,2);
     var ans=set_op(s3,s);
-<<<<<<< HEAD
+
     console.log("绘制图形数据集为：",ans);
 
+
+
     $(".gV").click(function(){
-        // let n=$(".group input").val();
-=======
-    $(".gV").click(function(){
->>>>>>> b17ded47996912a17a312d0c8fe9495016ccd0e0
+
         $(this).css('border-bottom','5px #49BEAA solid');
         $('.gA').css('border-bottom','5px #ddd solid');
         $('.gK').css('border-bottom','5px #ddd solid');
@@ -27,19 +26,17 @@ function attributeF(s3,selection,s,type){
         $(this).css('border-bottom','5px #49BEAA solid');
         $('.gV').css('border-bottom','5px #ddd solid');
         $('.gK').css('border-bottom','5px #ddd solid');
-<<<<<<< HEAD
+
         // let n=$(".group input").val();
-=======
->>>>>>> b17ded47996912a17a312d0c8fe9495016ccd0e0
+
         draw(ans,s,1,3); });
     $(".gK").click(function(){
         $(this).css('border-bottom','5px #49BEAA solid');
         $('.gA').css('border-bottom','5px #ddd solid');
         $('.gV').css('border-bottom','5px #ddd solid');
-<<<<<<< HEAD
+
         // let n=$(".group input").val();
-=======
->>>>>>> b17ded47996912a17a312d0c8fe9495016ccd0e0
+
         draw(ans,s,2,3); });
     $('.gA').css('border-bottom','5px #49BEAA solid');
     $('.gV').css('border-bottom','5px #ddd solid');

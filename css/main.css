@@ -107,12 +107,11 @@ body{
 }
 
 .num-style{
-<<<<<<< HEAD
+
     /*vertical-align: sub;*/
     font-size:8pt;
-=======
-    font-size:4pt;
->>>>>>> b17ded47996912a17a312d0c8fe9495016ccd0e0
+
+
     top:2px;
     left:1px;
     position:relative;
@@ -252,31 +251,30 @@ display:flex;justify-content:center;align-items:center;
     padding-right: 50px;
 }
 .title{
-<<<<<<< HEAD
+
     font-size: 14px;
     color: dodgerblue;
     text-align: center;
     padding: 0 2px auto 2px;
     padding-top: 0;
     /*padding-top: 2px;*/
-=======
+
     color: dodgerblue;
     text-align: center;
     padding: auto 2px auto 2px;
->>>>>>> b17ded47996912a17a312d0c8fe9495016ccd0e0
+
 }
 .title strong{
     color:black;
 }
 .contain-t{
-<<<<<<< HEAD
+
     /*margin: auto;*/
     /*position: absolute;*/
     /*top: 0; left: 250px; bottom: 0; right: 0;*/
     /*background: red;*/
 
-=======
->>>>>>> b17ded47996912a17a312d0c8fe9495016ccd0e0
+
 }
 .gV,.gA,.gK{
     border-bottom: 5px #ddd solid;
@@ -303,10 +301,9 @@ display:flex;justify-content:center;align-items:center;
     height: 80%;
     font-size: 17px;
 }
-<<<<<<< HEAD
+
 /*group name*/
-=======
->>>>>>> b17ded47996912a17a312d0c8fe9495016ccd0e0
+
 .group-name{
     font-family: Fantasy;
     fill:#808080;
