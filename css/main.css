@@ -9,7 +9,6 @@ body{
     color: #49BEAA;
 }
 .header>div{
-    /*font-family: Fantasy;*/
     padding: 10px 0px 0px 100px;
     text-align:left;
     font-weight: 550;
@@ -26,14 +25,10 @@ body{
     padding: 10px 10px 10px 10px;
     border-right: 1px #eee solid;
 }
-.item1-border,.item2-border{
-    /*border: 1px solid #DDDDDD;*/
-    /*border-left: 0px;*/
-    height:100%;
-    /*border-radius: 10px;*/
+.item1-border,.item2-border {
+    height: 100%;
 }
 .item2-border{
-    /*border: 1px solid #DDDDDD;*/
 }
 .item2{
     width:82%;
@@ -53,9 +48,6 @@ body{
     background-color: #f9f9f9;
     padding-top: 5px;
 }
-/*.item3>span:hover{*/
-    /*background-color: #DDDDDD;*/
-/*}*/
 .venues-container{
     width:100%;
     height:6%;
@@ -81,8 +73,6 @@ body{
     width: 100%;
     height:70px;
     background-color: white;
-
-    /*border-radius:5px;*/
 }
 .ven_body_container,.key_body_container,.aut_body_container{
     background-color: #DDDDDD;
@@ -98,16 +88,13 @@ body{
     height: 410px;
 
     overflow-y:scroll;
-    /*border-radius:5px;*/
 }
-
 .text-box{
     box-sizing:content-box;
     display:inline-block;
     padding-right:12px;
     margin:1px;
-    /*background-color: #DDDDDD;*/
-    /*border-radius:5px;*/
+
 }
 
 .text-box:hover{
@@ -120,7 +107,6 @@ body{
 }
 
 .num-style{
-    /*vertical-align: sub;*/
     font-size:4pt;
     top:2px;
     left:1px;
@@ -135,34 +121,11 @@ body{
 ::-webkit-scrollbar {
     width: 0px;
     height: 0px;
-    /*background-color: #ddd;*/
 }
-/*!*mistyrose这个红色很好看*!*/
-/*::-webkit-scrollbar-thumb {*/
-    /*background-color: #333;*/
-    /*border-radius: 10px;*/
-/*}*/
-
-/*::-webkit-scrollbar-thumb:hover {*/
-    /*background-color: #777;*/
-/*}*/
-
-
-/*!*滑道*!*/
-/*::-webkit-scrollbar-track {*/
-    /*box-shadow: inset 0 0 6px #333;*/
-    /*border-radius: 10px;*/
-/*}*/
-
-/*svg*/
 .content{
     transform: translate(0,30px);
 }
-/*.year-text{*/
 
-    /*font-size:17px;*/
-    /*font-weight: 200;*/
-/*}*/
 .yearText {
     font-family: Fantasy;
     fill:#808080;
@@ -170,7 +133,6 @@ body{
     font-size:25px;
     letter-spacing:1px;
     text-shadow: #98dafc 2px 2px 4px;
-    /*font-weight: 400;*/
 }
 .year-bar>line{
     stroke: #828080;
@@ -179,15 +141,7 @@ body{
     stroke-linecap:round;
     stroke-opacity: 0.4;
 }
-/*svg>g>circle{*/
-    /*stroke:#DDDDDD;*/
-    /*stroke-width:1px;*/
-    /*fill:#DDDDDD;*/
-    /*padding:2px;*/
-    /*margin:2px;*/
-/*}*/
 .line-year > path{
-    /*stroke:#DDDDDD;*/
     stroke-width: 2px;
     fill: cornflowerblue;
 }
@@ -196,7 +150,7 @@ body{
     stroke-width: 1.5px;
     fill: aquamarine;
     stroke-opacity: 0.4;
-    /*fill: #93e9ff;*/
+
 }
 circle{
     fill: black;
@@ -207,54 +161,12 @@ circle:hover{
     opacity: 1;
 }
 
-
-/*Ring style*/
 .arc path {
-    /*stroke-width: 0.5;*/
     stroke: #fff;
-    /*stroke-opacity: 0.7;*/
 }
 
-/*Tips */
 img{  max-width: 100%; max-height: 100%; }
 
-/* ----- tip ----- */
-/*.content-entry {*/
-    /*width: 300px;*/
-    /*height: 220px;*/
-    /*!*display: inline-block;*!*/
-    /*cursor: pointer;*/
-    /*background: white;*/
-    /*display: block;*/
-    /*top:200px;*/
-    /*!*display: flex;*!*/
-    /*!*display: table-cell;*!*/
-    /*!*vertical-align: middle;*!*/
-    /*text-align: center;*/
-    /*border:2px solid black;*/
-    /*left:50px;*/
-    /*!*align-items: center;*!*/
-/*}*/
-/*.detail{*/
-    /*width:400px;*/
-    /*height:300px;*/
-    /*margin: 5px 10px;*/
-    /*!*padding: 5px;*!*/
-    /*border: 5px solid white;*/
-    /*border-radius: 20px;*/
-    /*overflow: hidden;*/
-    /*word-wrap: break-word;*/
-    /*box-shadow: 0 0 9px 2px black;*/
-    /*text-align: left;*/
-/*}*/
-/*hr{*/
-    /*border: 0;*/
-    /*border-top: 1px solid #eee;*/
-/*}*/
-/*.image-conainer{*/
-    /*top:200px;*/
-    /*height: 220px;*/
-/*}*/
 .out{
     width: 450px;
     height:260px;
@@ -328,45 +240,47 @@ display:flex;justify-content:center;align-items:center;
     background-color: #dddddd;
 }
 .t div {
-    /*float:right;*/
-    /*padding-right: 40px;*/
-    /*text-align: center;*/
 }
 .t span{
     color: dodgerblue;
-    /*color: cornflowerblue;*/
     float:right;
     padding-right: 50px;
 }
 .title{
-
     color: dodgerblue;
     text-align: center;
     padding: auto 2px auto 2px;
-    /*padding-top: 2px;*/
 }
 .title strong{
     color:black;
 }
 .contain-t{
-
-    /*margin: auto;*/
-    /*position: absolute;*/
-    /*top: 0; left: 250px; bottom: 0; right: 0;*/
-    /*background: red;*/
-
 }
-/*g button*/
 .gV,.gA,.gK{
-    border-bottom: 5px #49BEAA solid;
+    border-bottom: 5px #ddd solid;
     border-radius: 0 0 5px 5px;
 }
 .gV:hover,.gA:hover,.gK:hover{
     border-radius: 0 0 5px 5px;
     border: 1px solid #ddd;
+    border-bottom: 5px #ddd solid;
+}
+.gV:visited,.gA:visited,.gK:visited{
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #ddd;
     border-bottom: 5px #49BEAA solid;
 }
-/*group name*/
+.group{
+    margin-right: 4px;
+    border-bottom: 5px #ddd solid;
+    border-radius: 0 0 5px 5px;
+}
+.group input{
+    width: 80%;
+    border: 0;
+    height: 80%;
+    font-size: 17px;
+}
 .group-name{
     font-family: Fantasy;
     fill:#808080;
@@ -374,8 +288,6 @@ display:flex;justify-content:center;align-items:center;
     font-size:20px;
     text-shadow: #98dafc 2px 2px 4px;
 }
-
-/*min + -*/
 .tag_occurrence {
     font-size: 9pt;
     float: right;
@@ -398,9 +310,6 @@ display:flex;justify-content:center;align-items:center;
     display: inline-block;
     padding: 0px;
 }
-
-
-/*预加载动画*/
 #sys-loading {
     position: fixed;
     left: 0;
@@ -411,18 +320,14 @@ display:flex;justify-content:center;align-items:center;
     background-color: hsla(0,0%,100%,1);
     opacity: 1
 }
-
 #sys-loading.finished {
     opacity: 0
 }
-
 #sys-loading .spinner {
     position: fixed;
     top: 50%;
     left: 50%;
     margin: -30px auto auto -15px;
-    /*width: 200px;
-    height: 100px;*/
     font-size: 10px
 }
 
@@ -469,22 +374,17 @@ display:flex;justify-content:center;align-items:center;
         -webkit-transform: scaleY(1)
     }
 }
-
 @-webkit-keyframes finishanim {
     0% {
         opacity: 1
     }
-
     99% {
         opacity: 0
     }
-
     to {
         display: none;
     }
 }
-
-/* --------------- loading -1  ---------------------  */
 @-webkit-keyframes line-scale-pulse-out-rapid {
     0% {
         -webkit-transform: scaley(1);
