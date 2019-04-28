@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // export function pathString(posotion_each_group,groupNumber,YearWidth){
 //     var pathstring=[];
 //     for(let gi=0;gi<groupNumber;gi++){
@@ -23,6 +24,8 @@
 //     return pathstring;
 // }
 //上面是原始的单点曲线
+=======
+>>>>>>> b17ded47996912a17a312d0c8fe9495016ccd0e0
 var n1=4;
 var n2=1;
 export function pathString(posotion_each_group,groupNumber,YearWidth){

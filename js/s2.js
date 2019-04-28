@@ -2,9 +2,7 @@ import {attributeF} from './attributeF.js';
 import {set_op} from "./set_op.js";
 var new_selection=[];
 var clicked=[];
-function s2(s3,selection,s,type){
-    // console.log("更新keywords面版");
-    // console.log("当前keywords数据集为：",selection);
+function s2(s3,selection,s){
     let map_s2={};
     let keywords2data={};
     for(let paper_i in selection){
@@ -23,11 +21,7 @@ function s2(s3,selection,s,type){
                 }
             }
         }
-
     }
-    // console.log(JSON.stringify(keywords2data));
-    // console.log("keywords面板映射",map_s2);
-    // console.log("keywords与文章映射对象",keywords2data);
     let data=[];
     for(var i in map_s2){
         let tmp= {};
@@ -36,7 +30,6 @@ function s2(s3,selection,s,type){
         data.push(tmp);
     }
     data.sort((a,b)=>b.num-a.num);
-    // console.log("venues数组",data);
     $('.keyword-body').children('*').remove();
     var div=d3.select('.keyword-body').selectAll('div').data(data).enter()
         .append('div').attr("class",function(d){if(clicked.indexOf(d.name)!=-1) { $(this).css('background', '#98dafc'); d.click=1; }return "text-box";})
@@ -45,7 +38,6 @@ function s2(s3,selection,s,type){
                 clicked.push(d.name);
                 $(this).css('background', '#98dafc');
                 let k=1;
-                console.log("--->",new_selection)
                 for(var j in keywords2data[d.name]){
                     for(var i in new_selection){
                         if(new_selection[i]===keywords2data[d.name][j])k=0;
@@ -53,7 +45,6 @@ function s2(s3,selection,s,type){
                     if(k)new_selection.push(keywords2data[d.name][j]);
                 }
                 d.click=1;
-
             }else {
                 var index = clicked.indexOf(d.name);
                 if (index > -1) {
@@ -61,33 +52,21 @@ function s2(s3,selection,s,type){
                 }
                 d.click=0;
                 $(this).css('background', '');
-                // new_selection.filter(function(value,index,arr){
-                //     return arr.indexOf(value,index+1) === -1
-                // })
                 var ans1=[];
-                var ans2=[];
-                console.log(1,new_selection,K2P[d.name]);
                 for(var i in new_selection) {
                     let k=1;
                     for(var j in K2P[d.name]){
                         if(new_selection[i]==K2P[d.name][j])k=0;
                     }
                     if(k)ans1.push(new_selection[i]);
-                    // else ans2.push(new_selection[i]);
                 }
                 new_selection=ans1;
-
             }
-
-
-            s3[2] = new_selection.map(function(item,index,array){
+            s3[2] = new_selection.map(function(item){
                 return s[item];
             });
             var ans = set_op(s3,s);
-
             if(ans.length==s.length)  attributeF([[],[],[]],s,s,-1);
-            console.log(2,ans,s3,s);
-
             attributeF(s3,ans,s,2);
         });
     div.append('span').text(d=>d.name).attr('class', 'text-style');

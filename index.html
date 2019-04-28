@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>visFigure</title>
     <link href="css/main.css" rel="stylesheet">
-
-
 </head>
 <body>
 <div id="sys-loading" class=""><div class="spinner">
@@ -23,34 +21,31 @@
         <div class="item1-border">
         <div class="venues-container">
             <div class="venues-head">Venues:
-
             </div>
             <div class="ven_body_container"><div class="venues-body"></div></div>
         </div>
         <div class="author-container">
             <div class="author-head">Authors:
-                <!--<div class="tag_occurrence">min<div class="button -">-</div><span>1</span><div class="button +">+</div></div>-->
             </div>
             <div class="aut_body_container"><div class="author-body"></div></div>
         </div>
         <div class="keyword-container">
             <div class="keyword-head">Keywords:
-                <!--<div class="tag_occurrence">min<div class="button -">-</div><span>1</span><div class="button +">+</div></div>-->
             </div>
             <div class="key_body_container"><div class="keyword-body"></div></div>
         </div>
         </div>
     </div>
-
     <div class="item2">
-
         <div class="item2-border">
         <svg class="svg"></svg>
         </div>
-
     </div>
     <div class="item3">
+<<<<<<< HEAD
         <!--<span class="group"><input type="text" placeholder="Numbers"></span>-->
+=======
+>>>>>>> b17ded47996912a17a312d0c8fe9495016ccd0e0
         <span class="gV">Venues</span> <span class="gA">Author</span> <span class="gK">Keyword</span></div>
 </div>
 <script>
@@ -58,7 +53,6 @@
         document.onreadystatechange = subSomething;
         function subSomething() {
             if (document.readyState == "complete") {
-                //延迟一秒关闭loading
                 $('#sys-loading').delay(1000).hide(0);
                 $('.spinner').delay(1000).fadeOut('slow');
             }

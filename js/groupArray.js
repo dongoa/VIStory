@@ -21,7 +21,6 @@ export function groupArray(gType,Idans,s,numGroups) {
             let y=(Number(s[ii].Year)-2009);
             item.arrYear[y].push(ii);
         });
-
         item.arrYear.forEach(function(iii,index,array){
 
             maxL= Math.max(iii.length,maxL)
@@ -31,12 +30,10 @@ export function groupArray(gType,Idans,s,numGroups) {
             g2paper.push(item);
         }
     }
-
     g2paper.sort(function(a,b){
         return b.length-a.length;
     });
     g2paper.splice(numGroups);
     let groupNumber=g2paper.length;
     return [g2paper,groupNumber];
-
 }
