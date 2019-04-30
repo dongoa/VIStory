@@ -233,9 +233,9 @@ display:flex;justify-content:center;align-items:center;
 }
 
 .t{
-    font-size: 8px;
+    font-size: 12px;
     font-family:"Lato", sans-serif;
-    padding-top: 3px;
+    padding: 2px;
 }
 .t strong{
 
