@@ -167,18 +167,25 @@ export function draw(ans,s,gType,numGroups=5){
         });
     svg.call(tip2);
     let px=0;
+    let pp=0;
     for(var i in g2paper){
         gNameText.append("text").attr("x",function(){
-            if(i==0) return 0;
-            let l = g2paper[i-1].name.length;
-            px+=l*10+10;
+            // if(i==0) return 0;
+            // let l = g2paper[i-1].name.length;
+            // px+=l*10+10;
+            //
+            // console.log(px,l);
 
-            console.log(px,l);
-
-            return px;
+            return 0;
         }).attr("y",height-10).attr("fill",function(){ return colormap[i]; })
             .text(function () {
                 return g2paper[i].name;
+            }).attr("class","gsort")
+            .attr("transform",function(d){
+                let wid= (this).getBBox().width;
+                console.log(wid);
+                px+=(wid);
+                return `translate(${px-wid+i*10},${0})`;
             })
     }
 }
