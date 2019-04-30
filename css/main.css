@@ -62,7 +62,7 @@ body{
 }
 .author-container,.keyword-container{
     width:100%;
-    height:45%;
+    height:35%;
     background-color:  #feffff;
 }
 .venues-head,.author-head,.keyword-head{
@@ -103,7 +103,7 @@ body{
 .author-body,.keyword-body{
     padding-left: 2%;
     width: 98%;
-    height: 210px;
+    height: 280px;
 
     overflow-y:scroll;
     overflow-x:hidden;
