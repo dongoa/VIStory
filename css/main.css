@@ -28,7 +28,7 @@ body{
 .item1 {
     width: 18%;
     background-color: #feffff;
-    padding: 10px 10px 10px 10px;
+    /*padding: 10px 10px 10px 10px;*/
     border-right: 1px #eee solid;
 }
 .item1-border,.item2-border {
@@ -66,6 +66,7 @@ body{
 }
 .venues-head,.author-head,.keyword-head{
     /*visibility: visible;*/
+    padding-left: 10px;
     height:30px;
     width: 100%;
     background-color: #F9F9F9;
@@ -256,7 +257,7 @@ display:flex;justify-content:center;align-items:center;
 .t span{
     color: dodgerblue;
     float:right;
-    padding-right: 50px;
+    padding-right: 5px;
 }
 .title{
 
