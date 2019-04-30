@@ -56,21 +56,19 @@ body{
 }
 .venues-container{
     width:100%;
-    height:10%;
+    height:14%;
     background-color: #feffff;
 
 }
 .author-container,.keyword-container{
     width:100%;
-    height:35%;
+    height:37%;
     background-color:  #feffff;
 }
 .venues-head,.author-head,.keyword-head{
 
     padding-left: 4%;
-
-    vertical-align: text-bottom;
-    height:35px;
+    /*height:30%;*/
     width: 96%;
     background-color: #F9F9F9;
     font-size: 25px;
@@ -84,8 +82,10 @@ body{
 
 
 .venues-body{
-    padding-top: 5px;
-    width: 100%;
+    overflow-y:scroll;
+    padding-left: 2%;
+    width: 98%;
+    padding-top: 15px;
     /*height:200px;*/
     background-color: white;
 }
@@ -93,6 +93,7 @@ body{
     background-color: #DDDDDD;
 }
 .author-body{
+
     background-color: white;
     padding-left: 2%;
 }
