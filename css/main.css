@@ -65,6 +65,11 @@ body{
     height:37%;
     background-color:  #feffff;
 }
+.keyword-container{
+    height:39%;
+
+}
+
 .venues-head,.author-head,.keyword-head{
 
     padding-left: 4%;
