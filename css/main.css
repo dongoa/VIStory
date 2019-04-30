@@ -86,7 +86,7 @@ body{
 .venues-body{
     padding-top: 5px;
     width: 100%;
-    height:200px;
+    /*height:200px;*/
     background-color: white;
 }
 .ven_body_container,.key_body_container,.aut_body_container{
@@ -103,7 +103,7 @@ body{
 .author-body,.keyword-body{
     padding-left: 2%;
     width: 98%;
-    height: 280px;
+    /*height: 260px;*/
 
     overflow-y:scroll;
     overflow-x:hidden;
