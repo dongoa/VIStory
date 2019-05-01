@@ -79,7 +79,7 @@ export function draw(ans,s,gType,numGroups=5){
     }
     var posotion_each_group=positioneachG(g2paper,YearWidth,height,y,p_each_year);
     var pathstring=pathString(posotion_each_group,groupNumber,YearWidth);
-    gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i];}).style("opacity","0.3");
+    gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i%3];}).style("opacity","0.3");
     var padingWidth=(YearWidth-cols*2*cR)/2;
     var startmoveNumber=1;
     if(cols<3)startmoveNumber=0;
@@ -177,7 +177,7 @@ export function draw(ans,s,gType,numGroups=5){
             // console.log(px,l);
 
             return 0;
-        }).attr("y",height-10).attr("fill",function(){ return colormap[i]; })
+        }).attr("y",height-10).attr("fill",function(){ return colormap[(i%3)]; })
             .text(function () {
                 return g2paper[i].name;
             }).attr("class","gsort")
