@@ -17,27 +17,27 @@ function attributeF(s3,selection,s,type){
 
 
     $(".gV").click(function(){
-
+        let nn=$("#selectN").val();
         $(this).css('border-bottom','5px #49BEAA solid');
         $('.gA').css('border-bottom','5px #ddd solid');
         $('.gK').css('border-bottom','5px #ddd solid');
-        draw(ans,s,0,3); });
+        draw(ans,s,0,nn); });
     $(".gA").click(function(){
         $(this).css('border-bottom','5px #49BEAA solid');
         $('.gV').css('border-bottom','5px #ddd solid');
         $('.gK').css('border-bottom','5px #ddd solid');
-
+        let nn=$("#selectN").val();
         // let n=$(".group input").val();
 
-        draw(ans,s,1,3); });
+        draw(ans,s,1,nn); });
     $(".gK").click(function(){
         $(this).css('border-bottom','5px #49BEAA solid');
         $('.gA').css('border-bottom','5px #ddd solid');
         $('.gV').css('border-bottom','5px #ddd solid');
-
+        let nn=$("#selectN").val();
         // let n=$(".group input").val();
 
-        draw(ans,s,2,3); });
+        draw(ans,s,2,nn); });
     $('.gA').css('border-bottom','5px #49BEAA solid');
     $('.gV').css('border-bottom','5px #ddd solid');
     $('.gK').css('border-bottom','5px #ddd solid');
