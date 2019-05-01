@@ -45,7 +45,7 @@ body{
 }
 .item3{
     position: absolute;
-    right:50px;
+    left:21%;
 }
 .item3>span{
     box-sizing:content-box;
@@ -270,7 +270,7 @@ display:flex;justify-content:center;align-items:center;
     color: dodgerblue;
     padding: 0;
     margin: 0.5px auto 0.5px auto;
-    float:right;
+    
     background-color: #dddddd;
 }
 .t div {
@@ -305,6 +305,17 @@ display:flex;justify-content:center;align-items:center;
     /*background: red;*/
 
 
+}
+.gN{
+    border-bottom: 5px #ddd solid;
+    border-radius: 0 0 5px 5px;
+    wdith:120px;
+}
+.gN select{
+
+    width:40%;
+    height:80%;
+    border-color: #dddddd;
 }
 .gV,.gA,.gK{
     border-bottom: 5px #ddd solid;
