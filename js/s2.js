@@ -37,8 +37,9 @@ function s2(s3,selection,s){
             if(d.click!=1){
                 clicked.push(d.name);
                 $(this).css('background', '#98dafc');
-                let k=1;
+
                 for(var j in keywords2data[d.name]){
+                    let k=1;
                     for(var i in new_selection){
                         if(new_selection[i]===keywords2data[d.name][j])k=0;
                     }

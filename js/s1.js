@@ -29,15 +29,18 @@ function s1(s3,selection,s){
     var div=d3.select('.author-body').selectAll('div').data(data).enter()
         .append('div').attr("class",function(d){if(clicked.indexOf(d.name)!=-1) { $(this).css('background', '#98dafc'); d.click=1; }return "text-box";})
         .on('click',function(d){
+            console.log("修改之前的selection",new_selection);
             if(d.click!=1){
                 clicked.push(d.name);
                 $(this).css('background', '#98dafc');
-                let k=1;
+
                 for(var j in authors2data[d.name]){
+                    let k=1;
                     for(var i in new_selection){
-                        if(new_selection[i]===authors2data[d.name][j])k=0;
+
+                        if(new_selection[i]===authors2data[d.name][j]) {  console.log(new_selection[i],authors2data[d.name][j]); k=0;}
                     }
-                    if(k)new_selection.push(authors2data[d.name][j]);
+                    if(k){  console.log("插入的编号",authors2data[d.name][j]);  new_selection.push(authors2data[d.name][j]);}
                 }
                 d.click=1;
             }else {
@@ -48,6 +51,7 @@ function s1(s3,selection,s){
                 d.click=0;
                 $(this).css('background', '');
                 var ans1=[];
+
                 for(var i in new_selection) {
                     let k=1;
                     for(var j in A2P[d.name]){
@@ -60,6 +64,7 @@ function s1(s3,selection,s){
             s3[1] = new_selection.map(function(item){
                 return s[item];
             });
+            console.log(s3[1],A2P["Shixia Liu"],new_selection);
             var ans = set_op(s3,s);
             if(ans.length==s.length)  attributeF([[],[],[]],s,s,-1);
             attributeF(s3,ans,s,1);

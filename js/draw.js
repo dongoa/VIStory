@@ -13,6 +13,8 @@ function turnPaperId(c1,c2){
     return arr;
 }
 export function draw(ans,s,gType,numGroups=5){
+    console.log(gType);
+
     var Idans = turnPaperId(ans,s);
     var [g2paper,groupNumber]=groupArray(gType,Idans,s,numGroups);
     var p_each_year=new Array(10).fill(0);
@@ -38,6 +40,9 @@ export function draw(ans,s,gType,numGroups=5){
             }
         }
     }
+
+    console.log("G2PAPER",g2paper);
+
     var svg = d3.select(".svg");
     const width=$('.svg').width();
     var height=$('.svg').height();
@@ -144,7 +149,7 @@ export function draw(ans,s,gType,numGroups=5){
                 return "rgba(" + colorload_data[d.data.figureid] + ")";
             })
             .on('mouseover', function (k) {  tip2.show(k,i);})
-            .on('mouseout', function (k) { tip2.hide(k,i); });
+            // .on('mouseout', function (k) { tip2.hide(k,i); });
     }
     var tip2 = d3.tip()
         .attr('class', 'd3-tip')

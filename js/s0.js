@@ -27,9 +27,9 @@ function s0(s3,selection,s){
             if(d.click!=1){
                 clicked.push(d.name);
                 $(this).css('background', '#98dafc');
-                let k=1;
                 console.log("--->",new_selection)
                 for(var j in venues2data[d.name]){
+                    let k=1;
                     for(var i in new_selection){
                         if(new_selection[i]===venues2data[d.name][j])k=0;
                     }
@@ -47,7 +47,7 @@ function s0(s3,selection,s){
                 for(var i in new_selection) {
                     let k=1;
                     for(var j in V2P[d.name]){
-                        if(new_selection[i]==V2P[d.name][j])k=0;
+                        if(new_selection[i]==V2P[d.name][j])    k=0;
                     }
                     if(k)ans1.push(new_selection[i]);
                 }
