@@ -2,7 +2,8 @@ import {groupArray} from './groupArray.js';
 import {r} from './r.js';
 import {positioneachG} from './positioneachG.js';
 import {pathString} from './pathString.js';
-var colormap=['#F39C29', '#7FBD66', '#BEA4DB'];
+// var colormap=['#F39C29', '#7FBD66', '#BEA4DB'];
+var colormap=['#95c9fc','#ffabab','#94abf6','#abffab','#ffffab','#ffabff','#abffff','#ababff','#ffd5ab','#c5a1e4','#6a564a','#b2dace','#c1bdca','#88cb7f','#b99888',];
 function turnPaperId(c1,c2){
     let arr=[];
     for(var i in c1){
@@ -84,7 +85,7 @@ export function draw(ans,s,gType,numGroups=5){
     }
     var posotion_each_group=positioneachG(g2paper,YearWidth,height,y,p_each_year);
     var pathstring=pathString(posotion_each_group,groupNumber,YearWidth);
-    gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i%3];}).style("opacity","0.3");
+    gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i%15];}).style("opacity","0.8");
     var padingWidth=(YearWidth-cols*2*cR)/2;
     var startmoveNumber=1;
     if(cols<3)startmoveNumber=0;
@@ -208,7 +209,7 @@ export function draw(ans,s,gType,numGroups=5){
             // console.log(px,l);
 
             return 0;
-        }).attr("y",height-10).attr("fill",function(){ return colormap[(i%3)]; })
+        }).attr("y",height-10).attr("fill",function(){ return colormap[(i%15)]; })
             .text(function () {
                 return g2paper[i].name;
             }).attr("class","gsort")
