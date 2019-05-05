@@ -123,8 +123,15 @@ export function draw(ans,s,gType,numGroups=5){
             });
         var g = geachRing.selectAll(".arc")
             .data(function(d){
+                console.log(d);
                 let data=figure2data[d.pid];
                 let tmp=pie(data);
+                console.log(tmp);
+                for(let j in tmp){
+                    tmp[j].x=d.x;
+                    tmp[j].y=d.y;
+                }
+
                 return tmp;
             })
             .enter().append("g")
@@ -136,7 +143,7 @@ export function draw(ans,s,gType,numGroups=5){
             .domain([0,8]);
         g.append("path")
             .attr("d", function(d){
-
+                console.log(d);
                 // console.log(scaleR(d.data.fratio));
                 let pages=(parseInt(s[d.data.paperid]["Last page"])-parseInt(s[d.data.paperid]["First page"]))+1;
                 // arc.innerRadius(0.8*cR2*(1-((d.data.textp)/(2200*2800*pages))));
@@ -148,12 +155,31 @@ export function draw(ans,s,gType,numGroups=5){
             .style("fill", function (d,i) {
                 return "rgba(" + colorload_data[d.data.figureid] + ")";
             })
-            .on('mouseover', function (k) {  tip2.show(k,i);})
-            // .on('mouseout', function (k) { tip2.hide(k,i); });
+            .on('mouseover', function (k) {
+
+                console.log(width,height,k.x,k.y);
+                if(k.x <225 && k.y<130) tip2.direction('se');
+                else if(k.x <225 && k.y>260 && height-k.y >130) tip2.direction('e');
+                else if(k.x <225 && height-k.y <130)tip2.direction('ne');
+                else if(width-k.x<450 &&  k.y<130) tip2.direction('sw');
+                else if(width-k.x<450&&  k.y>260 && height-k.y >260) tip2.direction('w');
+                else if(width-k.x<450&& height-k.y <260) tip2.direction('nw');
+                else if(k.x >225 && width-k.x>350 && k.y<130) tip2.direction('s');
+                else if(k.x >225 && width-k.x>350 && k.y>260 && height-k.y >260) tip2.direction('s');
+                else if(k.x >225 && width-k.x>250 && height-k.y <260) tip2.direction('n');
+
+
+                // else if(width-k.x < 450)  tip2.direction('sw');
+                // else if(height-k.y<260) tip2.direction('nw');
+                // else tip2.direction('se');
+                console.log(k);
+                tip2.show(k,i);
+            })
+            .on('mouseout', function (k) { tip2.hide(k,i); });
     }
     var tip2 = d3.tip()
         .attr('class', 'd3-tip')
-        .offset([10, 100])
+        // .offset([10, 100])
         .direction('s')
         .html(function (d,_i) {
             console.log(d);
