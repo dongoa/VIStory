@@ -44,7 +44,7 @@ body{
 .item2{
     width:82%;
     background-color: #feffff;
-    margin: 50px 50px 50px 50px
+    margin: 50px 5px 5px 5px;
 }
 .item3{
     position: absolute;
@@ -351,8 +351,9 @@ display:flex;justify-content:center;align-items:center;
     font-family: Fantasy;
     fill:#808080;
     opacity:0.8;
-    font-size:20px;
-    text-shadow: #98dafc 2px 2px 4px;
+    font-size:15px;
+
+    text-shadow: #1a487a 2px 2px 4px;
 }
 .tag_occurrence {
     font-size: 9pt;
@@ -383,6 +384,7 @@ display:flex;justify-content:center;align-items:center;
     right: 0;
     bottom: 0;
     z-index: 10000000;
+
     background-color: hsla(0,0%,100%,1);
     opacity: 1
 }

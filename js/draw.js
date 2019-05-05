@@ -85,7 +85,7 @@ export function draw(ans,s,gType,numGroups=5){
     }
     var posotion_each_group=positioneachG(g2paper,YearWidth,height,y,p_each_year);
     var pathstring=pathString(posotion_each_group,groupNumber,YearWidth);
-    gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i%15];}).style("opacity","0.8");
+    gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i%15];}).style("stroke-opacity","0.2").style("opacity","0.8");
     var padingWidth=(YearWidth-cols*2*cR)/2;
     var startmoveNumber=1;
     if(cols<3)startmoveNumber=0;
@@ -200,6 +200,7 @@ export function draw(ans,s,gType,numGroups=5){
     svg.call(tip2);
     let px=0;
     let pp=0;
+    let ll=g2paper.length;
     for(var i in g2paper){
         gNameText.append("text").attr("x",function(){
             // if(i==0) return 0;
@@ -209,7 +210,13 @@ export function draw(ans,s,gType,numGroups=5){
             // console.log(px,l);
 
             return 0;
-        }).attr("y",height-10).attr("fill",function(){ return colormap[(i%15)]; })
+        }).attr("y",function(d){
+            if(ll>5&&i<=5) return height-10-15;
+            else if(ll>5&&i>5) return height-10;
+            else  return height-10;
+
+
+        }).attr("fill",function(){ return colormap[(i%15)]; })
             .text(function () {
                 return g2paper[i].name;
             }).attr("class","gsort")
@@ -217,6 +224,7 @@ export function draw(ans,s,gType,numGroups=5){
                 let wid= (this).getBBox().width;
                 console.log(wid);
                 px+=(wid);
+                if(i==6) px=0;
                 return `translate(${px-wid+i*10},${0})`;
             })
     }
