@@ -147,8 +147,8 @@ export function draw(ans,s,gType,numGroups=5){
                 console.log(d);
                 // console.log(scaleR(d.data.fratio));
                 let pages=(parseInt(s[d.data.paperid]["Last page"])-parseInt(s[d.data.paperid]["First page"]))+1;
-                arc.innerRadius(0.95*cR2*(1-((d.data.textp)/(2200*2800*pages))));
-                // arc.innerRadius(cR2*(1-scaleR(d.data.fratio))*0.8);
+                // arc.innerRadius(0.95*cR2*(1-((d.data.textp)/(2200*2800*pages))));
+                arc.innerRadius(cR2*(1-scaleR(d.data.fratio))*0.9);
 
 
                 return arc(d);
@@ -224,7 +224,8 @@ export function draw(ans,s,gType,numGroups=5){
                 let wid= (this).getBBox().width;
                 console.log(wid);
                 px+=(wid);
-                if(i>=6) px=10;
+                if(i==6) px=wid;
+                if(i>=6)return `translate(${px-wid+(i-6)*10},${0})`;
                 return `translate(${px-wid+i*10},${0})`;
             })
     }
