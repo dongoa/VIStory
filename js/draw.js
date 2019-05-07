@@ -85,10 +85,14 @@ export function draw(ans,s,gType,numGroups=5){
     }
     var posotion_each_group=positioneachG(g2paper,YearWidth,height,y,p_each_year);
     var pathstring=pathString(posotion_each_group,groupNumber,YearWidth);
+    console.log(posotion_each_group,pathstring);
     gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i%15];})//.style("stroke-opacity","0.2").style("opacity","0.8")
-        .on("mouseover",function(){
+        .on("mouseover",function(d,i){
+            tip3.show(g2paper[i],i);
             $("group-path>path").css("opacity",0.2);
             $(this).css("opacity",1);
+
+            // console.log(.arr.length);
         })
         .on("mouseout",function(){
             $(this).css("opacity",0.2);
@@ -191,7 +195,6 @@ export function draw(ans,s,gType,numGroups=5){
         // .offset([10, 100])
         .direction('s')
         .html(function (d,_i) {
-            console.log(d);
             var _url = d.data.src;
             var  string = "<div class='out'>" +
                 "<div class='top'>" +
@@ -206,6 +209,17 @@ export function draw(ans,s,gType,numGroups=5){
             return string;
         });
     svg.call(tip2);
+
+    var tip3 = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-50, -50])
+        .direction('n')
+        .html(function (d,_i) {
+
+            var  string = "<div class='gdView'>"+d.name+"</div>";
+            return string;
+        });
+    svg.call(tip3);
     let px=0;
     let pp=0;
     let ll=g2paper.length;
