@@ -85,7 +85,15 @@ export function draw(ans,s,gType,numGroups=5){
     }
     var posotion_each_group=positioneachG(g2paper,YearWidth,height,y,p_each_year);
     var pathstring=pathString(posotion_each_group,groupNumber,YearWidth);
-    gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i%15];}).style("stroke-opacity","0.2").style("opacity","0.8");
+    gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i%15];})//.style("stroke-opacity","0.2").style("opacity","0.8")
+        .on("mouseover",function(){
+            $("group-path>path").css("opacity",0.2);
+            $(this).css("opacity",1);
+        })
+        .on("mouseout",function(){
+            $(this).css("opacity",0.2);
+            // $(this).css("opacity",1);
+        })
     var padingWidth=(YearWidth-cols*2*cR)/2;
     var startmoveNumber=1;
     if(cols<3)startmoveNumber=0;
@@ -211,8 +219,8 @@ export function draw(ans,s,gType,numGroups=5){
 
             return 0;
         }).attr("y",function(d){
-            if(ll>5&&i<=5) return height-10-15;
-            else if(ll>5&&i>5) return height-10;
+            if(ll>8&&i<=8) return height-10-15;
+            else if(ll>8&&i>8) return height-10;
             else  return height-10;
 
 
@@ -224,8 +232,8 @@ export function draw(ans,s,gType,numGroups=5){
                 let wid= (this).getBBox().width;
                 console.log(wid);
                 px+=(wid);
-                if(i==6) px=wid;
-                if(i>=6)return `translate(${px-wid+(i-6)*10},${0})`;
+                if(i==9) px=wid;
+                if(i>=9)return `translate(${px-wid+(i-9)*10},${0})`;
                 return `translate(${px-wid+i*10},${0})`;
             })
     }

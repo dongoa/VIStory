@@ -188,7 +188,14 @@ body{
     fill: aquamarine;
     stroke-opacity: 0.4;
 
+
 }
+.group-path>path{
+    opacity:0.2;
+}
+/*.group-path>path:hover{*/
+    /*fill:black;*/
+/*}*/
 circle{
     fill: black;
     opacity: 0.1;
