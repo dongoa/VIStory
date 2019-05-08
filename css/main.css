@@ -206,7 +206,8 @@ circle:hover{
 }
 
 .arc path {
-    stroke: #fff;
+    /*stroke: #fff;*/
+    stroke: #000000;
 }
 
 img{  max-width: 100%; max-height: 100%; }
@@ -214,12 +215,12 @@ img{  max-width: 100%; max-height: 100%; }
 .out{
     width: 450px;
     height:260px;
-    background-color: #828080;
-    border: 3px solid white;
-    border-radius: 5px;
+    /*background-color: #828080;*/
+    /*border: 3px solid white;*/
+    /*border-radius: 5px;*/
     overflow: hidden;
     word-wrap: break-word;
-    box-shadow: 0 0 9px 2px black;
+    box-shadow: 0 0 4px 1px black;
 }
 .img{
     position: absolute;
@@ -227,16 +228,19 @@ img{  max-width: 100%; max-height: 100%; }
     left:50%;
     transform: translate(-50%,-50%);
 }
-.top{
-    width: 100%;
-    height:13%;
-    background-color: snow;
-}
+/*.top{*/
+    /*width: 100%;*/
+    /*height:13%;*/
+    /*background-color: snow;*/
+    /*vertical-align: middle;*/
+
+    /*display:flex;justify-content:center;align-items:center;*/
+/*}*/
 .figs{
     float: left;
-    width: 250px;
-    height:10%;
-    background-color: snow;
+    width: 260px;
+    height:8%;
+    background-color: white;
     text-align: center;
 
     font-size: 12px;
@@ -244,51 +248,87 @@ img{  max-width: 100%; max-height: 100%; }
 }
 .left{
     float: left;
-    width: 250px;
-    height:77%;
-    background-color: snow;
+    width: 260px;
+    height:92%;
+    background-color: white;
     text-align: center;
     position: relative;
     border-top: 1px solid #dddddd;
 }
-.right:before{
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    height: 100%;
-}
+/*.right:before{*/
+    /*content: '';*/
+    /*display: inline-block;*/
+    /*vertical-align: middle;*/
+    /*height: 100%;*/
+/*}*/
 .right{
     float: right;
-    width: 192px;
-    height:87%;
-    background-color: snow;
+    width: 184px;
+    height:100%;
+    background-color: white;
     padding-left: 5px;
-    padding-right: 2px;
+    /*padding-right: 2px;*/
     border-left: 1px solid #dddddd;
     border-top: 1px solid #dddddd;
-    vertical-align: middle;
+    overflow-y: auto;
+    /*vertical-align: middle;*/
 
-    display:flex;justify-content:center;align-items:center;
+
+    display:grid;
+    /*grid:   0px 1fr 1fr 1fr / auto;*/
+    /*justify-content:center;align-items:center;*/
 }
+
 .gdView{
     width: 200px;
     height: 10px;
-    background-color: #dddddd;
+    /*background-color: #dddddd;*/
+}
+.title{
+    width: 100%;
+    /*height: 25%;*/
+    /*background-color: #67CF22;*/
+    /*word-break:break-all;*/
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+.author{
+    width: 100%;
+    /*height: 31%;*/
+    /*background-color: #828080;*/
+    margin-bottom: 5px;
+}
+.year{
+    width: 100%;
+    /*height: 7%;*/
+    /*background-color: #49BEAA;*/
+    margin-bottom: 5px;
+}
+.conference{
+    width: 100%;
+    /*height: 7%;*/
+    /*background-color: #dddddd;*/
+    margin-bottom: 5px;
+}
+.keyword{
+    width: 100%;
+    /*height: 30%;*/
+    /*background-color: #98dafc;*/
 }
 .t{
     font-size: 12px;
     font-family:"Lato", sans-serif;
-    padding: 2px;
+    /*padding: 2px;*/
 }
 .t strong{
 
-    font-size: 14px;
-    font-weight: 900;
+    /*font-size: 14px;*/
+    /*font-weight: 900;*/
 }
 .t p{
     color: dodgerblue;
     padding: 0;
-    margin: 0.5px auto 0.5px auto;
+    /*margin: 0.5px auto 0.5px auto;*/
 
     background-color: #dddddd;
 }
@@ -299,23 +339,18 @@ img{  max-width: 100%; max-height: 100%; }
     float:right;
     padding-right: 5px;
 }
-.title{
+/*.title{*/
+    /*line-height: 90%;*/
+    /*font-size: 15px;*/
+    /*color: black;*/
+    /*font-weight: 400;*/
+    /*text-align: center;*/
+    /*padding: 0 2px auto 2px;*/
 
-    font-size: 14px;
-    color: dodgerblue;
-    text-align: center;
-    padding: 0 2px auto 2px;
-    padding-top: 0;
-    /*padding-top: 2px;*/
-
-    color: dodgerblue;
-    text-align: center;
-    padding: auto 2px auto 2px;
-
-}
-.title strong{
-    color:black;
-}
+/*}*/
+/*.title strong{*/
+    /*color:black;*/
+/*}*/
 .contain-t{
     width: 100%;
     /*height: 100%;*/

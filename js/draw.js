@@ -184,7 +184,7 @@ export function draw(ans,s,gType,numGroups=5){
                 // console.log(d);
                 // console.log(scaleR(d.data.fratio));
                 let pages=(parseInt(s[d.data.paperid]["Last page"])-parseInt(s[d.data.paperid]["First page"]))+1;
-                // arc.innerRadius(0.95*cR2*(1-((d.data.textp)/(2200*2800*pages))));
+                arc.innerRadius(0.9*cR2*(1-((d.data.textp)/(2200*2800*pages))));
                 arc.innerRadius(cR2*(1-scaleR(d.data.fratio))*0.9);
 
 
@@ -196,24 +196,23 @@ export function draw(ans,s,gType,numGroups=5){
             .on('mouseover', function (k) {
 
                 // console.log(width,height,k.x,k.y);
-                if(k.x <225 && k.y<130) tip2.direction('se');
-                else if(k.x <225 && k.y>260 && height-k.y >130) tip2.direction('e');
-                else if(k.x <225 && height-k.y <130)tip2.direction('ne');
-                else if(width-k.x<450 &&  k.y<130) tip2.direction('sw');
-                else if(width-k.x<450&&  k.y>260 && height-k.y >260) tip2.direction('w');
-                else if(width-k.x<450&& height-k.y <260) tip2.direction('nw');
-                else if(k.x >225 && width-k.x>350 && k.y<130) tip2.direction('s');
-                else if(k.x >225 && width-k.x>350 && k.y>260 && height-k.y >260) tip2.direction('s');
-                else if(k.x >225 && width-k.x>250 && height-k.y <260) tip2.direction('n');
 
+                TTTT(k);
 
-                // else if(width-k.x < 450)  tip2.direction('sw');
-                // else if(height-k.y<260) tip2.direction('nw');
-                // else tip2.direction('se');
-                // console.log(k);
-                tip2.show(k,i);
             })
-            .on('mouseout', function (k) { tip2.hide(k,i); });
+            .on('mouseout', function (k) { /*tip2.hide(k,i);*/});
+    }
+    function TTTT(k) {
+        if(k.x <225 && k.y<130) tip2.direction('se');
+        else if(k.x <225 && k.y>260 && height-k.y >130) tip2.direction('e');
+        else if(k.x <225 && height-k.y <130)tip2.direction('ne');
+        else if(width-k.x<450 &&  k.y<130) tip2.direction('sw');
+        else if(width-k.x<450&&  k.y>260 && height-k.y >260) tip2.direction('w');
+        else if(width-k.x<450&& height-k.y <260) tip2.direction('nw');
+        else if(k.x >225 && width-k.x>350 && k.y<130) tip2.direction('s');
+        else if(k.x >225 && width-k.x>350 && k.y>260 && height-k.y >260) tip2.direction('s');
+        else if(k.x >225 && width-k.x>250 && height-k.y <260) tip2.direction('n');
+        tip2.show(k);
     }
     var tip2 = d3.tip()
         .attr('class', 'd3-tip')
@@ -222,14 +221,15 @@ export function draw(ans,s,gType,numGroups=5){
         .html(function (d,_i) {
             var _url = d.data.src;
             var  string = "<div class='out'>" +
-                "<div class='top'>" +
-                "  " +"<div class='title t'>"+s[d.data.paperid]["Paper Title"]+"</div></div>" +
+                // "<div class='top'>" +
+                // "  " +"<div class='title t'>"+s[d.data.paperid]["Paper Title"]+"</div></div>" +
                 "<div class='left'><img class='img' src=" +_url +" ></div>" +
                 "<div class='right'><div class='contain-t'>"+
-                "" +"<div class='author t'><strong>AUTHORS:</strong><p>"+s[d.data.paperid]["Author Names"]+"</p></div>"+
-                "" +"<div class='year t'><strong>PUBLISHED YEAR:</strong><span>"+s[d.data.paperid]["Year"]+"</span></div>"+
-                "" +"<div class='conference t'><strong>CONFERENCE:</strong><span>"+s[d.data.paperid]["Conference"]+"</span></div>"+
-                "" +"<div class='keyword t'><strong>KEYWORDS:</strong><p>"+s[d.data.paperid]["Author Keywords"]+"</p></div>"+
+                "" +"<div class='title t'><strong>TITLE: </strong>"+s[d.data.paperid]["Paper Title"]+"</div>"+
+                "" +"<div class='author t'><strong>AUTHORS: </strong>"+s[d.data.paperid]["Author Names"]+"</div>"+
+                "" +"<div class='year t'><strong>PUBLISHED YEAR: </strong>"+s[d.data.paperid]["Year"]+"</div>"+
+                "" +"<div class='conference t'><strong>CONFERENCE: </strong>"+s[d.data.paperid]["Conference"]+"</div>"+
+                "" +"<div class='keyword t'><strong>KEYWORDS: </strong>"+s[d.data.paperid]["Author Keywords"]+"</div>"+
                 "</div></div><div class='figs'>"+"Fig."+(d.index+1)+" of "+(d.data.fignums)+"</div></div>";
             return string;
         });
@@ -239,7 +239,7 @@ export function draw(ans,s,gType,numGroups=5){
         .attr('class', 'nameTip')
         .offset([20, 0])
         .direction('n')
-        .html(function (d,_i) {
+        .html(function(d,_i) {
 
             var  string = "<div class='gdView'>"+d.name+"</div>";
             return d.name;
