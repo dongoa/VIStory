@@ -12,6 +12,7 @@ d3.functor = function functor(v) {
 };
 
 d3.tip = function() {
+    console.log('进入tip');
 
     var direction = d3_tip_direction,
         offset    = d3_tip_offset,
@@ -31,6 +32,8 @@ d3.tip = function() {
     //
     // Returns a tip
     tip.show = function() {
+        var bbox = getScreenBBox()
+        console.log("屏幕位置",bbox);
         var args = Array.prototype.slice.call(arguments)
         if(args[args.length - 1] instanceof SVGElement) target = args.pop()
 
@@ -250,6 +253,7 @@ d3.tip = function() {
     }
 
     function getSVGNode(el) {
+        console.log("这里是el",el);
         el = el.node()
         if(el.tagName.toLowerCase() === 'svg')
             return el
@@ -296,6 +300,7 @@ d3.tip = function() {
 
         point.x = x
         point.y = y
+        console.log(matrix,tbbox);
         bbox.nw = point.matrixTransform(matrix)
         point.x += width
         bbox.ne = point.matrixTransform(matrix)
@@ -315,7 +320,6 @@ d3.tip = function() {
 
         return bbox
     }
-
     return tip
 };
 // // d3.tip

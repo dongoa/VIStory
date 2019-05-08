@@ -88,6 +88,8 @@ export function draw(ans,s,gType,numGroups=5){
     console.log(posotion_each_group,pathstring);
     gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i%15];})//.style("stroke-opacity","0.2").style("opacity","0.8")
         .on("mouseover",function(d,i){
+            // console.log("BBox",tip3.getScreenBBox2());
+
             tip3.show(g2paper[i],i);
             $("group-path>path").css("opacity",0.2);
             $(this).css("opacity",1);
@@ -95,6 +97,7 @@ export function draw(ans,s,gType,numGroups=5){
             // console.log(.arr.length);
         })
         .on("mouseout",function(){
+            tip3.hide();
             $(this).css("opacity",0.2);
             // $(this).css("opacity",1);
         })
@@ -136,10 +139,10 @@ export function draw(ans,s,gType,numGroups=5){
             });
         var g = geachRing.selectAll(".arc")
             .data(function(d){
-                console.log(d);
+                // console.log(d);
                 let data=figure2data[d.pid];
                 let tmp=pie(data);
-                console.log(tmp);
+                // console.log(tmp);
                 for(let j in tmp){
                     tmp[j].x=d.x;
                     tmp[j].y=d.y;
@@ -156,7 +159,7 @@ export function draw(ans,s,gType,numGroups=5){
             .domain([0,8]);
         g.append("path")
             .attr("d", function(d){
-                console.log(d);
+                // console.log(d);
                 // console.log(scaleR(d.data.fratio));
                 let pages=(parseInt(s[d.data.paperid]["Last page"])-parseInt(s[d.data.paperid]["First page"]))+1;
                 // arc.innerRadius(0.95*cR2*(1-((d.data.textp)/(2200*2800*pages))));
@@ -170,7 +173,7 @@ export function draw(ans,s,gType,numGroups=5){
             })
             .on('mouseover', function (k) {
 
-                console.log(width,height,k.x,k.y);
+                // console.log(width,height,k.x,k.y);
                 if(k.x <225 && k.y<130) tip2.direction('se');
                 else if(k.x <225 && k.y>260 && height-k.y >130) tip2.direction('e');
                 else if(k.x <225 && height-k.y <130)tip2.direction('ne');
@@ -185,7 +188,7 @@ export function draw(ans,s,gType,numGroups=5){
                 // else if(width-k.x < 450)  tip2.direction('sw');
                 // else if(height-k.y<260) tip2.direction('nw');
                 // else tip2.direction('se');
-                console.log(k);
+                // console.log(k);
                 tip2.show(k,i);
             })
             .on('mouseout', function (k) { tip2.hide(k,i); });
@@ -200,7 +203,7 @@ export function draw(ans,s,gType,numGroups=5){
                 "<div class='top'>" +
                 "  " +"<div class='title t'>"+s[d.data.paperid]["Paper Title"]+"</div></div>" +
                 "<div class='left'><img class='img' src=" +_url +" ></div>" +
-                "<div class='right'><div class='contain-t'>" +
+                "<div class='right'><div class='contain-t'>"+
                 "" +"<div class='author t'><strong>AUTHORS:</strong><p>"+s[d.data.paperid]["Author Names"]+"</p></div>"+
                 "" +"<div class='year t'><strong>PUBLISHED YEAR:</strong><span>"+s[d.data.paperid]["Year"]+"</span></div>"+
                 "" +"<div class='conference t'><strong>CONFERENCE:</strong><span>"+s[d.data.paperid]["Conference"]+"</span></div>"+
@@ -211,13 +214,13 @@ export function draw(ans,s,gType,numGroups=5){
     svg.call(tip2);
 
     var tip3 = d3.tip()
-        .attr('class', 'd3-tip')
-        .offset([-50, -50])
+        .attr('class', 'nameTip')
+        .offset([20, 0])
         .direction('n')
         .html(function (d,_i) {
 
             var  string = "<div class='gdView'>"+d.name+"</div>";
-            return string;
+            return d.name;
         });
     svg.call(tip3);
     let px=0;
