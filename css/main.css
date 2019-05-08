@@ -512,3 +512,16 @@ img{  max-width: 100%; max-height: 100%; }
 .line-scale-pulse-out-rapid > div:nth-child(1), .line-scale-pulse-out-rapid > div:nth-child(5) {
     -webkit-animation-delay: 0.5s !important;
     animation-delay: 0.5s !important; }
+
+
+.tips {
+
+    position: absolute;
+
+    z-index: 99;
+
+    background: white;
+
+    color: black;
+    border: 1px solid silver;
+}

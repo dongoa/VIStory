@@ -299,8 +299,8 @@ d3.tip = function() {
             y          = tbbox.y
 
         point.x = x
-        point.y = y
-        console.log(matrix,tbbox);
+        point.y = y+height/2
+        console.log(matrix,tbbox,point.x,point.y);
         bbox.nw = point.matrixTransform(matrix)
         point.x += width
         bbox.ne = point.matrixTransform(matrix)

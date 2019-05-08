@@ -83,14 +83,36 @@ export function draw(ans,s,gType,numGroups=5){
             }
         }
     }
+    var $tips = $('#J_tips');
+
+    if (!$tips.length) {
+
+        $tips = $('<div id="J_tips" class="tips"></div>');
+
+        $('body').append($tips);
+
+    }
     var posotion_each_group=positioneachG(g2paper,YearWidth,height,y,p_each_year);
     var pathstring=pathString(posotion_each_group,groupNumber,YearWidth);
     console.log(posotion_each_group,pathstring);
     gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i%15];})//.style("stroke-opacity","0.2").style("opacity","0.8")
         .on("mouseover",function(d,i){
             // console.log("BBox",tip3.getScreenBBox2());
+            $(this).on("click",function(e){
+                var pageX = e.pageX,
 
-            tip3.show(g2paper[i],i);
+                    pageY = e.pageY;
+                console.log(pageX,pageY);
+                $tips.text(g2paper[i].name).css({
+
+                    top: pageY,
+
+                    left: pageX
+
+                });
+            })
+
+            // tip3.show(g2paper[i],i);
             $("group-path>path").css("opacity",0.2);
             $(this).css("opacity",1);
 
