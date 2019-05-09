@@ -96,7 +96,7 @@ export function draw(ans,s,gType,numGroups=5){
     var pathstring=pathString(posotion_each_group,groupNumber,YearWidth);
     console.log(posotion_each_group,pathstring);
     gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i%15];})//.style("stroke-opacity","0.2").style("opacity","0.8")
-        .on("mouseover",function(d,i){
+        .on("mousemove",function(d,i){
             // console.log("BBox",tip3.getScreenBBox2());
             $(this).on("click",function(e){
                 var pageX = e.pageX,
@@ -119,7 +119,7 @@ export function draw(ans,s,gType,numGroups=5){
             // console.log(.arr.length);
         })
         .on("mouseout",function(){
-            tip3.hide();
+            // tip3.hide();
             $(this).css("opacity",0.2);
             // $(this).css("opacity",1);
         })
@@ -220,17 +220,34 @@ export function draw(ans,s,gType,numGroups=5){
         .direction('s')
         .html(function (d,_i) {
             var _url = d.data.src;
+
+
+            let sauthor = s[d.data.paperid]["Author Names"].split(';').join('; ');
+            let skey = s[d.data.paperid]["Author Keywords"].split(',').join(', ');
+
+
+
+
             var  string = "<div class='out'>" +
                 // "<div class='top'>" +
                 // "  " +"<div class='title t'>"+s[d.data.paperid]["Paper Title"]+"</div></div>" +
                 "<div class='left'><img class='img' src=" +_url +" ></div>" +
                 "<div class='right'><div class='contain-t'>"+
                 "" +"<div class='title t'><strong>TITLE: </strong>"+s[d.data.paperid]["Paper Title"]+"</div>"+
-                "" +"<div class='author t'><strong>AUTHORS: </strong>"+s[d.data.paperid]["Author Names"]+"</div>"+
-                "" +"<div class='year t'><strong>PUBLISHED YEAR: </strong>"+s[d.data.paperid]["Year"]+"</div>"+
-                "" +"<div class='conference t'><strong>CONFERENCE: </strong>"+s[d.data.paperid]["Conference"]+"</div>"+
-                "" +"<div class='keyword t'><strong>KEYWORDS: </strong>"+s[d.data.paperid]["Author Keywords"]+"</div>"+
-                "</div></div><div class='figs'>"+"Fig."+(d.index+1)+" of "+(d.data.fignums)+"</div></div>";
+                "" +"<div class='author t AAA'  ><strong>AUTHORS: </strong>"+sauthor+"</div>"+
+            // style='font-size:"+(s[d.data.paperid]["Author Names"].length>100?5:6) +"px'
+
+                // "" +"<div class='year t'><strong>PUBLISHED YEAR: </strong>"+s[d.data.paperid]["Year"]+"</div>"+
+                "" +"<div class='conference t'><strong>VEUES: </strong>"+s[d.data.paperid]["Conference"]+"</div>"+
+                "" +"<div class='keyword t'><strong>KEYWORDS: </strong>"+skey+"</div>"+
+                "" +"<div class='fig t'><strong>FIG: </strong>"+(d.index+1)+"/"+(d.data.fignums)+"</div>"+
+                // "" +"<div class='link t'><strong>Link: </strong>"+s[d.data.paperid]["Link"]+"</div>"+
+                // "</div></div>" +
+                // "<div class='figs'>"+"Fig."+(d.index+1)+" of "+(d.data.fignums)+"</div>" +
+                "</div>";
+
+            if(s[d.data.paperid]["Author Names"].length>100) {  console.log(111); $('.AAA').css('font-size','10'); }
+            if(s[d.data.paperid]["Paper Title"].length>90) $('.title .t').css('font-size','10px');
             return string;
         });
     svg.call(tip2);
