@@ -199,6 +199,25 @@ export function draw(ans,s,gType,numGroups=5){
 
                 TTTT(k);
 
+                $('.img').ready(function(){
+                    let ww = $('.img').css('width');
+                    console.log(ww);
+                });
+
+              let imgW =  (260/k.data.fratio);
+
+
+              let W1=$('.title'). height();
+              let W2=$('.author'). height();
+              let W3=$('.conference'). height();
+              let W4=$('.keyword'). height();
+              let W5=$('.fig'). height();
+
+                let MMM=W1+W2+W3+W4+W5+35;
+                console.log(W1,W2,W3,W4,W5,imgW,MMM);
+
+                $('.out').css('height',(imgW+10)>220?220:(imgW+10>MMM?imgW+10:MMM) );
+
             })
             .on('mouseout', function (k) { /*tip2.hide(k,i);*/});
     }
@@ -220,10 +239,12 @@ export function draw(ans,s,gType,numGroups=5){
         .direction('s')
         .html(function (d,_i) {
             var _url = d.data.src;
-
+            console.log(d);
 
             let sauthor = s[d.data.paperid]["Author Names"].split(';').join('; ');
             let skey = s[d.data.paperid]["Author Keywords"].split(',').join(', ');
+
+
 
 
 
