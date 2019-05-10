@@ -14,7 +14,8 @@ function s2(s3,selection,s){
                 let key_arr = keyword_arr[i].split(";");
                 for(let j in key_arr){
                     let keyword = key_arr[j].toLocaleLowerCase().replace(/(^\s*)|(\s*$)/g, "").replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
-                    if(keyword!="") {
+                    console.log(keyword);
+                    if(keyword!=""&&keyword!='Visualization'&&keyword!='Visual Analytics'&&keyword!='Information Visualization') {
                         map_s2[keyword] == undefined ? map_s2[keyword] = 1 : map_s2[keyword] += 1;
                         keywords2data[keyword] == undefined ? keywords2data[keyword] = [ii] : keywords2data[keyword].push(ii);
                     }

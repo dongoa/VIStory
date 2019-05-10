@@ -3,7 +3,17 @@ import {r} from './r.js';
 import {positioneachG} from './positioneachG.js';
 import {pathString} from './pathString.js';
 // var colormap=['#F39C29', '#7FBD66', '#BEA4DB'];
-var colormap=['#95c9fc','#ffabab','#94abf6','#abffab','#ffffab','#ffabff','#abffff','#ababff','#ffd5ab','#c5a1e4','#6a564a','#b2dace','#c1bdca','#88cb7f','#b99888',];
+var colormap=[
+    '#a6cee3',
+    '#1f78b4',
+    '#b2df8a',
+    '#33a02c',
+    '#fb9a99',
+    '#e31a1c',
+    '#fdbf6f',
+    '#ff7f00',
+    '#cab2d6',
+    '#6a3d9a'];
 function turnPaperId(c1,c2){
     let arr=[];
     for(var i in c1){
@@ -95,7 +105,7 @@ export function draw(ans,s,gType,numGroups=5){
     var posotion_each_group=positioneachG(g2paper,YearWidth,height,y,p_each_year);
     var pathstring=pathString(posotion_each_group,groupNumber,YearWidth);
     console.log(posotion_each_group,pathstring);
-    gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i%15];})//.style("stroke-opacity","0.2").style("opacity","0.8")
+    gPath.selectAll("path").data(pathstring).enter().append("path").attr("d",function(d){ return d; }).attr("fill",function(d,i){ return colormap[i];})//.style("stroke-opacity","0.2").style("opacity","0.8")
         .on("mousemove",function(d,i){
             // console.log("BBox",tip3.getScreenBBox2());
             $(this).on("click",function(e){
@@ -147,7 +157,7 @@ export function draw(ans,s,gType,numGroups=5){
         }
     }
     {
-        let cR2=cR-2;
+        let cR2=cR-4;
         var arc = d3.arc()
             .outerRadius(cR2)
         var pie = d3.pie()
@@ -213,13 +223,18 @@ export function draw(ans,s,gType,numGroups=5){
               let W4=$('.keyword'). height();
               let W5=$('.fig'). height();
 
-                let MMM=W1+W2+W3+W4+W5+35;
+                let MMM=W1+W2+W3+W4+W5+40;
                 console.log(W1,W2,W3,W4,W5,imgW,MMM);
+                let HH=0,IH=( (imgW+10)>220?220:(imgW+10));
 
-                $('.out').css('height',(imgW+10)>220?220:(imgW+10>MMM?imgW+10:MMM) );
+
+                if(IH> MMM) HH=IH;
+                else HH=MMM;
+
+                $('.out').css('height',HH );
 
             })
-            .on('mouseout', function (k) { /*tip2.hide(k,i);*/});
+            .on('mouseout', function (k) { tip2.hide(k,i); });
     }
     function TTTT(k) {
         if(k.x <225 && k.y<130) tip2.direction('se');
@@ -259,7 +274,7 @@ export function draw(ans,s,gType,numGroups=5){
             // style='font-size:"+(s[d.data.paperid]["Author Names"].length>100?5:6) +"px'
 
                 // "" +"<div class='year t'><strong>PUBLISHED YEAR: </strong>"+s[d.data.paperid]["Year"]+"</div>"+
-                "" +"<div class='conference t'><strong>VEUES: </strong>"+s[d.data.paperid]["Conference"]+"</div>"+
+                "" +"<div class='conference t'><strong>VENUE: </strong>"+s[d.data.paperid]["Conference"]+"</div>"+
                 "" +"<div class='keyword t'><strong>KEYWORDS: </strong>"+skey+"</div>"+
                 "" +"<div class='fig t'><strong>FIG: </strong>"+(d.index+1)+"/"+(d.data.fignums)+"</div>"+
                 // "" +"<div class='link t'><strong>Link: </strong>"+s[d.data.paperid]["Link"]+"</div>"+
@@ -296,9 +311,10 @@ export function draw(ans,s,gType,numGroups=5){
 
             return 0;
         }).attr("y",function(d){
-            if(ll>8&&i<=8) return height-10-15;
-            else if(ll>8&&i>8) return height-10;
-            else  return height-10;
+            // if(ll>8&&i<=8) return height-10-15;
+            // else if(ll>8&&i>8) return height-10;
+            // else
+                return height-10;
 
 
         }).attr("fill",function(){ return colormap[(i%15)]; })
@@ -309,9 +325,9 @@ export function draw(ans,s,gType,numGroups=5){
                 let wid= (this).getBBox().width;
                 console.log(wid);
                 px+=(wid);
-                if(i==9) px=wid;
-                if(i>=9)return `translate(${px-wid+(i-9)*10},${0})`;
-                return `translate(${px-wid+i*10},${0})`;
+                // if(i==9) px=wid;
+                // if(i>=9)return `translate(${px-wid+(i-9)*20},${0})`;
+                return `translate(${px-wid+i*20},${0})`;
             })
     }
 }
