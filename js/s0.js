@@ -17,6 +17,12 @@ function s0(s3,selection,s){
         let tmp= {};
         tmp['name'] = i;
         tmp['num'] = map_s0[i];
+        let sumfig=0;
+        for(let j in V2P[i]){
+
+            sumfig+=figure2data[j][0].fignums;
+        }
+        tmp['fignum']=sumfig;
         data.push(tmp);
     }
     data.sort((a,b)=>b.num-a.num);
@@ -62,5 +68,17 @@ function s0(s3,selection,s){
         });
     div.append('span').text(d=>d.name).attr('class', 'text-style');
     div.append('span').text(d=>d.num).attr('class', 'num-style');
+    div.append("span").text(d=>d.fignum).attr("class","num-figures").style("left",function(d){
+        if(d.fignum>1000){
+            return '-20px';
+        }
+        if(d.num>100){
+            return '-12px';
+        }
+        if(d.num>10){
+            return '-8px';
+        }
+        return '-2px';
+    });
 }
 export {s0};

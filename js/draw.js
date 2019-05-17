@@ -193,9 +193,10 @@ export function draw(ans,s,gType,numGroups=5){
             .attr("d", function(d){
                 // console.log(d);
                 // console.log(scaleR(d.data.fratio));
-                let pages=(parseInt(s[d.data.paperid]["Last page"])-parseInt(s[d.data.paperid]["First page"]))+1;
-                arc.innerRadius(0.9*cR2*(1-((d.data.textp)/(2200*2800*pages))));
-                arc.innerRadius(cR2*(1-scaleR(d.data.fratio))*0.9);
+                // let pages=(parseInt(s[d.data.paperid]["Last page"])-parseInt(s[d.data.paperid]["First page"]))+1;
+                // arc.innerRadius(0.9*cR2*(1-((d.data.textp)/(2200*2800*pages))));
+                let xxxx=cR2*(1-scaleR(d.data.fratio))*0.9;
+                arc.innerRadius(  (xxxx)<0?0:xxxx  );
 
 
                 return arc(d);
@@ -234,7 +235,7 @@ export function draw(ans,s,gType,numGroups=5){
                 $('.out').css('height',HH );
 
             })
-            .on('mouseout', function (k) { tip2.hide(k,i); });
+            .on('mouseout', function (k) { tip2.hide(k,i);});
     }
     function TTTT(k) {
         if(k.x <225 && k.y<130) tip2.direction('se');
@@ -330,4 +331,5 @@ export function draw(ans,s,gType,numGroups=5){
                 return `translate(${px-wid+i*20},${0})`;
             })
     }
+
 }

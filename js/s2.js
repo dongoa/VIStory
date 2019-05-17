@@ -14,7 +14,7 @@ function s2(s3,selection,s){
                 let key_arr = keyword_arr[i].split(";");
                 for(let j in key_arr){
                     let keyword = key_arr[j].toLocaleLowerCase().replace(/(^\s*)|(\s*$)/g, "").replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
-                    console.log(keyword);
+                    // console.log(keyword);
                     if(keyword!=""&&keyword!='Visualization'&&keyword!='Visual Analytics'&&keyword!='Information Visualization') {
                         map_s2[keyword] == undefined ? map_s2[keyword] = 1 : map_s2[keyword] += 1;
                         keywords2data[keyword] == undefined ? keywords2data[keyword] = [ii] : keywords2data[keyword].push(ii);
@@ -28,6 +28,13 @@ function s2(s3,selection,s){
         let tmp= {};
         tmp['name'] = i;
         tmp['num'] = map_s2[i];
+        let sumfig=0;
+        for(let j in K2P[i]){
+
+            sumfig+=figure2data[j][0].fignums;
+        }
+        tmp['fignum']=sumfig;
+
         data.push(tmp);
     }
     data.sort((a,b)=>b.num-a.num);
@@ -73,5 +80,17 @@ function s2(s3,selection,s){
         });
     div.append('span').text(d=>d.name).attr('class', 'text-style');
     div.append('span').text(d=>d.num).attr('class', 'num-style');
+    div.append("span").text(d=>d.fignum).attr("class","num-figures").style("left",function(d){
+        if(d.fignum>1000){
+            return '-20px';
+        }
+        if(d.num>100){
+            return '-12px';
+        }
+        if(d.num>10){
+            return '-12px';
+        }
+        return '-5px';
+    });;;
 }
 export {s2};

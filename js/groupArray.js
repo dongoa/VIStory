@@ -16,14 +16,22 @@ export function groupArray(gType,Idans,s,numGroups) {
             }
         }
         item.arrYear=[[],[],[],[],[],[],[],[],[],[]];
+        item.FigYear=[[],[],[],[],[],[],[],[],[],[]];
         let l=item.arr.length;
+
         item.arr.forEach(function(ii,index,array){
             let y=(Number(s[ii].Year)-2009);
+            let f2 =figure2data[ii][0].fignums;
+
             item.arrYear[y].push(ii);
+            item.FigYear[y].push(f2);
+
+
         });
+
         item.arrYear.forEach(function(iii,index,array){
 
-            maxL= Math.max(iii.length,maxL)
+            maxL= Math.max(iii.length,maxL);
         });
         if(l!=0){
             item.length=l;
