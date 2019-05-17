@@ -3,6 +3,7 @@ export function groupArray(gType,Idans,s,numGroups) {
     if(gType==0) grouphash=V2P;
     if(gType==1) grouphash=A2P;
     if(gType==2) grouphash=K2P;
+    if(gType==3) grouphash=NC2P;
     var maxL=0;
     var g2paper=[];
     for(var name in grouphash){

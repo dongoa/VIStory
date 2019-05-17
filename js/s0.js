@@ -67,18 +67,7 @@ function s0(s3,selection,s){
             attributeF(s3,ans,s,0);
         });
     div.append('span').text(d=>d.name).attr('class', 'text-style');
-    div.append('span').text(d=>d.num).attr('class', 'num-style');
-    div.append("span").text(d=>d.fignum).attr("class","num-figures").style("left",function(d){
-        if(d.fignum>1000){
-            return '-20px';
-        }
-        if(d.num>100){
-            return '-12px';
-        }
-        if(d.num>10){
-            return '-8px';
-        }
-        return '-2px';
-    });
+    div.append('span').text(d=>"("+d.num+")").attr('class', 'num-style');
+
 }
 export {s0};

@@ -54,29 +54,25 @@ body{
     box-sizing:content-box;
     display:inline-block;
     height: 30px;
-    width: 100px;
+    width: 120px;
     text-align: center;
     background-color: #f9f9f9;
     padding-top: 5px;
 }
 .venues-container{
     width:100%;
-    height:14%;
+    height:10%;
     background-color: white;
-
 }
-.author-container,.keyword-container{
+.author-container,.keyword-container,.Fig-container{
     width:100%;
-    height:37%;
+    height:30%;
     background-color:  white;
 }
 .keyword-container{
-    height:39%;
-
+    height:30%;
 }
-
-.venues-head,.author-head,.keyword-head{
-
+.venues-head,.author-head,.keyword-head,.Fig-head{
     padding-left: 4%;
     /*height:30%;*/
     width: 96%;
@@ -147,7 +143,7 @@ body{
     font-size:8pt;
 
 
-    top:5px;
+    top:2px;
     left:1px;
     position:relative;
     color: black;
@@ -392,20 +388,20 @@ img{  max-width: 100%; max-height: 100%; }
 }
 .gN select{
     font-size: 15px;
-    width:80%;
+    width:30%;
     height:80%;
     border-color: #dddddd;
 }
-.gV,.gA,.gK{
+.gV,.gA,.gK,.gF{
     border-bottom: 5px #ddd solid;
     border-radius: 0 0 5px 5px;
 }
-.gV:hover,.gA:hover,.gK:hover{
+.gV:hover,.gA:hover,.gK:hover,.gF:hover{
     border-radius: 0 0 5px 5px;
     border: 1px solid #ddd;
     border-bottom: 5px #ddd solid;
 }
-.gV:visited,.gA:visited,.gK:visited{
+.gV:visited,.gA:visited,.gK:visited,.gF:visited{
     border-radius: 0 0 5px 5px;
     border: 1px solid #ddd;
     border-bottom: 5px #49BEAA solid;
