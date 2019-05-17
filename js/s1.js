@@ -95,7 +95,7 @@ function s1(s3,selection,s){
                 // console.log(s2);
                 if(s2>n2){
                     // console.log(i);
-                    i.style.display='block';
+                    i.style.display='inline-block';
                 }
                 else {
                     // console.log(i);
@@ -127,7 +127,7 @@ function s1(s3,selection,s){
             // console.log(s2);
             if(s2>n2){
                 // console.log(i);
-                i.style.display='block';
+                i.style.display='inline-block';
             }
             else {
                 // console.log(i);
