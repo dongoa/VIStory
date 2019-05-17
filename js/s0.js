@@ -63,7 +63,7 @@ function s0(s3,selection,s){
                 return s[item];
             });
             var ans = set_op(s3,s);
-            if(ans.length==s.length)  attributeF([[],[],[]],s,s,-1);
+            if(ans.length==s.length)  attributeF([[],[],[],[]],s,s,-1);
             attributeF(s3,ans,s,0);
         });
     div.append('span').text(d=>d.name).attr('class', 'text-style');

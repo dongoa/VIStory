@@ -1,5 +1,8 @@
 export function set_op(s3,s){
-    console.log(s3);
+
+
+
+    console.log("XXXXXXXXX",s3);
 
 
     var ans=[];

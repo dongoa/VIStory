@@ -72,10 +72,76 @@ function s1(s3,selection,s){
             });
             console.log(s3[1],A2P["Shixia Liu"],new_selection);
             var ans = set_op(s3,s);
-            if(ans.length==s.length)  attributeF([[],[],[]],s,s,-1);
+            if(ans.length==s.length)  attributeF([[],[],[],[]],s,s,-1);
             attributeF(s3,ans,s,1);
         });
     div.append('span').text(d=>d.name).attr('class', 'text-style');
     div.append('span').text(d=>"("+d.num+")").attr('class', 'num-style');
+
+
+
+    $("#AAA").click(function(){
+        let n = $("#AAAnum");
+        let n1=n[0].innerHTML;
+        let n2=++n1;
+        n[0].innerHTML=n2;
+
+        var a = $(".author-body > .text-box");
+        for(let i of a){
+            // console.log(i);
+
+                let s = i.children[1].innerHTML;
+                let s2 = parseInt(s.substr(1, s.length-1));
+                // console.log(s2);
+                if(s2>n2){
+                    // console.log(i);
+                    i.style.display='block';
+                }
+                else {
+                    // console.log(i);
+                    i.style.display='none';
+                }
+
+
+
+
+        }
+
+
+
+
+    })
+
+    $("#AAA2").click(function(){
+        let n = $("#AAAnum");
+        let n1=n[0].innerHTML;
+        let n2=--n1;
+        n[0].innerHTML=n2;
+
+        var a = $(".author-body > .text-box");
+        for(let i of a){
+            // console.log(i);
+
+            let s = i.children[1].innerHTML;
+            let s2 = parseInt(s.substr(1, s.length-1));
+            // console.log(s2);
+            if(s2>n2){
+                // console.log(i);
+                i.style.display='block';
+            }
+            else {
+                // console.log(i);
+                i.style.display='none';
+            }
+
+
+
+
+        }
+
+
+
+
+    })
 }
 export {s1};

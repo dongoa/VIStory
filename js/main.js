@@ -36,3 +36,4 @@ $('.venues-head').css('height',hei*0.04);
 $('.author-head').css('height',hei*0.04);
 $('.keyword-head').css('height',hei*0.04);
 $('.Fig-head').css('height',hei*0.04);
+
