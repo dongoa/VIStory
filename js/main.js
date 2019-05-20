@@ -27,10 +27,10 @@ var div=document.getElementById('');
 
 
 
-$('.venues-body').css('height',hei*0.06);
-$('.author-body').css('height',hei*0.26);
-$('.keyword-body').css('height',hei*0.26);
-$('.Fig-body').css('height',hei*0.26);
+$('.venues-body').css('height',hei*0.04);
+$('.author-body').css('height',hei*0.32);
+$('.keyword-body').css('height',hei*0.29);
+$('.Fig-body').css('height',hei*0.10);
 
 $('.venues-head').css('height',hei*0.04);
 $('.author-head').css('height',hei*0.04);

@@ -5,16 +5,16 @@ var clicked=[];
 function sfig(s3,selection,s){
     console.log(s3,selection,s);
 
-    let map={"> 20":0,"10-20":0,"5-10":0,"< 5":0};
-    let fignum2data={"> 20":[],"10-20":[],"5-10":[],"< 5":[]};
+    let map={"More than 20":0,"10-20":0,"5-10":0,"Less than 5":0};
+    let fignum2data={"More than 20":[],"10-20":[],"5-10":[],"Less than 5":[]};
     for(let paper_i in selection){
         let ii=s.indexOf(selection[paper_i]);
         let a=figure2data[ii][0].fignums;
 
-        if(a>20) {fignum2data["> 20"].push(ii); map["> 20"]++;}
+        if(a>20) {fignum2data["More than 20"].push(ii); map["More than 20"]++;}
         else if(a>10) {fignum2data["10-20"].push(ii); map["10-20"]++;}
         else if(a>5) {fignum2data["5-10"].push(ii); map["5-10"]++;}
-        else {fignum2data["< 5"].push(ii); map["< 5"]++;}
+        else {fignum2data["Less than 5"].push(ii); map["Less than 5"]++;}
 
 
         // if(map[numi]==undefined) map[numi]=1;
