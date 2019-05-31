@@ -29,10 +29,10 @@ function sfig(s3,selection,s){
         tmp['num'] = map[i];
         data.push(tmp);
     }
-    data.sort((a,b)=>b.num-a.num);
+    // data.sort((a,b)=>b.num-a.num);
     $('.Fig-body').children('*').remove();
     var div=d3.select('.Fig-body').selectAll('div').data(data).enter()
-        .append('div').attr("class",function(d){if(clicked.indexOf(d.name)!=-1) { $(this).css('background', '#98dafc'); d.click=1; }return "text-box";})
+        .append('div').attr("class",function(d){if(clicked.indexOf(d.name)!=-1) { $(this).css('background', '#98dafc'); d.click=1; }return "text-box";}).style("width","45%")
         .on('click',function(d){
             if(d.click!=1){
                 clicked.push(d.name);

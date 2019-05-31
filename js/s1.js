@@ -80,37 +80,7 @@ function s1(s3,selection,s){
 
 
 
-    $("#AAA").click(function(){
-        let n = $("#AAAnum");
-        let n1=n[0].innerHTML;
-        let n2=++n1;
-        n[0].innerHTML=n2;
 
-        var a = $(".author-body > .text-box");
-        for(let i of a){
-            // console.log(i);
-
-                let s = i.children[1].innerHTML;
-                let s2 = parseInt(s.substr(1, s.length-1));
-                // console.log(s2);
-                if(s2>n2){
-                    // console.log(i);
-                    i.style.display='inline-block';
-                }
-                else {
-                    // console.log(i);
-                    i.style.display='none';
-                }
-
-
-
-
-        }
-
-
-
-
-    })
 
     $("#AAA2").click(function(){
         let n = $("#AAAnum");

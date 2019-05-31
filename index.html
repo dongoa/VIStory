@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>visFigure</title>
+    <link rel="stylesheet" href="js-out/jquery-ui.css">
+    <script src="js-out/jquery.js" type="text/javascript"></script>
+    <script src="js-out/jquery-ui.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="js-out/jquery-ui.structure.css">
+    <link rel="stylesheet" href="js-out/jquery-ui.theme.css">
     <link href="css/main.css" rel="stylesheet">
+
 </head>
 <body>
 <div id="sys-loading" class=""><div class="spinner">
@@ -27,7 +33,7 @@
         </div>
         <div class="author-container">
             <div class="author-head">Authors:
-                <div class="tag_occurrence toggle-container">min<div id="AAA2" class="button dec small">-</div><span id="AAAnum">5</span><div id="AAA" class="button inc small">+</div></div>
+                <div class="tag_occurrence toggle-container">min<div id="AAA2" class="button dec small">-</div><span id="AAAnum">1</span><div id="AAA" class="button inc small">+</div></div>
             </div>
             <div class="aut_body_container"><div class="author-body"></div></div>
         </div>
@@ -58,7 +64,7 @@
 <option value="5">5</option>
 <option value="10">10</option>
 </select> </span>
-        <span class="gV">Venues</span> <span class="gA">Author</span> <span class="gK">Keyword</span> <span class="gF">Fignums</span></div>
+        <span class="gV">Venues</span> <span class="gA">Author</span> <span class="gK">Keyword</span> <span class="gF">Fig. Num.</span></div>
 </div>
 <script>
     function reloading(){
@@ -73,11 +79,13 @@
     reloading();
     var selet=1;
 </script>
+
+
 <script src="js/venues2p.js"></script>
 <script src="js/ColorData.js"></script>
 <script src="js-out/d3.min.js"></script>
 <script src="js-out/d3.tip.js"></script>
-<script src="js-out/jquery-3.3.1.min.js"></script>
+<!--<script src="js-out/jquery-3.3.1.min.js"></script>-->
 <script type="module" src="js/main.js"></script>
 </body>
 </html>
